@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Redressed&family=Righteous&display=swap');
+:root {
+    --primaryColor: #1e90ff;
+    --textColor: rgba(11, 39, 15, 1);
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(135deg, rgba(216, 235, 216, 1.0), rgba(199, 236, 200, 1.0));
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+.navbar{
+    width:90%;
+    margin: auto;
+    height:6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logoContainer{
+    display: flex;
+    align-items: center;
+}
+.logoContainer img{
+    width: 27px;
+}
+.logoContainer h2{
+    font-weight:600;
+    color:var(--textColor);
+    font-size: 23px;
+}
+.headList ul{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 34px;
+    font-weight: 600;
+    color: var(--textColor);
+}
+.headButtons{
+    display: flex;
+    gap:17px;
+}
+.headButtons button{
+    font-family: 'Poppins', sans-serif;
+    border: 2px black solid;
+    border-radius: 10px;
+    color: var(--textColor);
+    font-size: 20px;
+    font-weight: 600;
+    width: 130px;
+    height: 38px;
+}
+.headButtons .login button{
+    background-color: transparent;
+}
+.headButtons .signUp button{
+    background-color: rgba(142, 192, 108, 0.44);
+}
+.container{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.leftContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    font-family: 'Redressed', cursive;
+}
+.leftContainer h1,h2{
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+.leftContainer h1{
+    font-size: 180px;
+    color:var(--textColor);
+    margin:-120px 0px -50px -100px;
+}
+.leftContainer h2{
+    font-size: 135px;
+    color:rgba(99, 110, 103, 0.82);
+    padding-left: 350px;
+}
+.rightContainer{
+    width: 35%;
+    background-image: url(images/HomePlant.png);
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position-y: center;
+}
+.navButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 5%;
+    gap: 10px;
+}
+.navButton a{
+    text-decoration: none;
+}
+.navButton i{
+    font-size:12px;
+    color: #889C81;
+}
