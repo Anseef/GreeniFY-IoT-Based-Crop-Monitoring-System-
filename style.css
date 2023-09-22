@@ -1,39 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Redressed&family=Righteous&display=swap');
+
 :root {
     --primaryColor: #1e90ff;
     --textColor: rgba(11, 39, 15, 1);
+    scroll-behavior: smooth;
 }
-body{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+
+body {
     padding: 0;
     margin: 0;
     background: linear-gradient(135deg, rgba(216, 235, 216, 1.0), rgba(199, 236, 200, 1.0));
     font-family: 'Poppins', sans-serif;
     user-select: none;
 }
-.navbar{
-    width:90%;
+
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.navbarContainer {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    height: 5rem;
+}
+
+.navbar {
+    width: 90%;
     margin: auto;
-    height:6rem;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: transparent;
 }
-.logoContainer{
+
+.navbarContainer.scrolled {
+    background: linear-gradient(135deg, rgba(216, 235, 216, 1.0), rgba(199, 236, 200, 1.0));
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+    z-index: 100;
+}
+
+.logoContainer {
     display: flex;
     align-items: center;
 }
-.logoContainer img{
+
+.logoContainer img {
     width: 27px;
 }
-.logoContainer h2{
-    font-weight:600;
-    color:var(--textColor);
+
+.logoContainer h2 {
+    font-weight: 600;
+    color: var(--textColor);
     font-size: 23px;
 }
-.headList ul{
+
+.headList ul {
     display: flex;
     flex-direction: row;
     list-style-type: none;
@@ -41,11 +66,13 @@ body{
     font-weight: 600;
     color: var(--textColor);
 }
-.headButtons{
+
+.headButtons {
     display: flex;
-    gap:17px;
+    gap: 17px;
 }
-.headButtons button{
+
+.headButtons button {
     font-family: 'Poppins', sans-serif;
     border: 2px black solid;
     border-radius: 10px;
@@ -55,18 +82,48 @@ body{
     width: 130px;
     height: 38px;
 }
-.headButtons .login button{
+
+.headButtons .login button {
     background-color: transparent;
 }
-.headButtons .signUp button{
+
+.headButtons .signUp button {
     background-color: rgba(142, 192, 108, 0.44);
 }
-.container{
+
+.navButton {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 5%;
+    gap: 10px;
+}
+
+.navButton a {
+    text-decoration: none;
+}
+
+.navButton i {
+    font-size: 12px;
+    color: #889C81;
+    transition: all 0.2s;
+}
+
+.navButton .active {
+    font-size: 14px;
+    color: rgba(44, 72, 44, 1);
+}
+
+.bodyContainer {
     flex: 1;
     display: flex;
     justify-content: center;
 }
-.leftContainer{
+
+.leftContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,22 +131,27 @@ body{
     width: 60%;
     font-family: 'Redressed', cursive;
 }
-.leftContainer h1,h2{
+
+.leftContainer h1,
+h2 {
     font-weight: normal;
     margin: 0;
     padding: 0;
 }
-.leftContainer h1{
+
+.leftContainer h1 {
     font-size: 180px;
-    color:var(--textColor);
-    margin:-120px 0px -50px -100px;
+    color: var(--textColor);
+    margin: -120px 0px -50px -100px;
 }
-.leftContainer h2{
+
+.leftContainer h2 {
     font-size: 135px;
-    color:rgba(99, 110, 103, 0.82);
+    color: rgba(99, 110, 103, 0.82);
     padding-left: 350px;
 }
-.rightContainer{
+
+.rightContainer {
     width: 35%;
     background-image: url(images/HomePlant.png);
     background-position-x: center;
@@ -97,18 +159,192 @@ body{
     background-size: auto;
     background-position-y: center;
 }
-.navButton{
+
+/*Dashboard*/
+
+.dashContainer {
+    height: 100vh;
+    color: var(--textColor);
+}
+
+.dashboard {
+    width: 80%;
+    background-color: rgba(29, 68, 51, 0.04);
+    margin: auto;
+    padding: 0 2rem 2rem;
+    border-radius: 20px;
+}
+
+.dashHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+}
+
+.dashHeader .heading h1,
+p {
+    margin: 0;
+}
+
+.dashHeader .heading p {
+    font-size: 13px;
+    color: #687065;
+    font-weight: 500;
+}
+
+.dashHeader .heading h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.dashHeader span {
+    background-color: #fff;
+    padding: .4rem;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.dashboard .dashTiles {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashTiles .tile {
+    margin-top: 3rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 20px;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-around;
+}
+
+.tile .sensor-img {
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+
+.tile h2,
+span {
+    font-weight: 600;
+}
+
+.tile span {
+    color: rgba(133, 196, 70, 1);
+    font-size: 30px;
+    padding-left: 2rem;
+}
+
+/*Watering Details */
+
+.dash-Main {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.watering-Details {
+    background-color: white;
+    width: 70%;
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-left h1,.sensor-Status h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.header-left span {
+    color: #687065;
+    font-size: 14px;
+}
+
+.header-right .searchBar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: .5rem;
+    border-radius: 15px;
+    border: 2px solid black;
+}
+
+.searchBar input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 150px;
+}
+
+.searchBar input::placeholder {
+    color: var(--textColor);
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    ;
+}
+
+.dash-Main .blocks {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.blocks .details-block {
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    width: 180px;
+    height: 160px;
+    border-radius: 15px;
+    border: 2px solid black;
+    background-color: rgb(236, 245, 238);
+}
+
+.details-block .day-image {
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+}
+
+.details-block h2 {
+    font-weight: 600;
+}
+
+.details-block .watering-time h3 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+/*Sensor status */
+
+.sensor-Status {
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 1rem;
     align-items: center;
-    width: 5%;
-    gap: 10px;
+    background: linear-gradient(180deg, rgba(167, 222, 158, 1), rgba(133, 196, 70, 0));
+    width: 20%;
+    border-radius: 15px;
 }
-.navButton a{
-    text-decoration: none;
+.sensor-Status .sensor-details {
+    display: flex;
+    align-items: center;
+    gap:5rem;
 }
-.navButton i{
-    font-size:12px;
-    color: #889C81;
+.sensor-details i {
+    font-size: 35px;
 }
