@@ -1,15 +1,17 @@
+<?php include "../connection.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../Charts/chart.css">
     <title>GreeniFY</title>
 </head>
 <body>
     <!--                 HOMEPAGE            -->
-    <div class="homeContainer" id="Home">
+    <div class="home-Container" id="Home">
         <div class="navbarContainer">
             <div class="navbar">
                 <div class="logoContainer">
@@ -44,14 +46,14 @@
             <div class="navButton">
                 <a href="#Home"><i class="fa-solid fa-circle active"></i></a>
                 <a href="#Dashboard"><i class="fa-solid fa-circle"></i></a>
-                <a href="#"><i class="fa-solid fa-circle"></i></a>
-                <a href="#"><i class="fa-solid fa-circle"></i></a>
+                <a href="#Analytics"><i class="fa-solid fa-circle"></i></a>
+                <a href="#Contact"><i class="fa-solid fa-circle"></i></a>
             </div>
         </div>
     </div>
 
     <!--                 DASHBOARD             -->
-    <div class="dashContainer" id="Dashboard">
+    <div class="dash-Container" id="Dashboard">
         <div class="dashboard">
             <div class="dashHeader">
                 <div class="heading">
@@ -110,7 +112,7 @@
                     <div class="blocks">
                         <div class="details-block morning">
                             <h2>Morning</h2>
-                            <div class="day-image" style="background: url(/images/Day/Morning.png);"></div>
+                            <div class="day-image" style="background: url(images/Day/Morning.png);"></div>
                             <div class="watering-time">
                                 <h3>10.43PM</h3>
                                 <h3>10.43PM</h3>
@@ -118,7 +120,7 @@
                         </div>
                         <div class="details-block afternoon">
                             <h2>Afternoon</h2>
-                            <div class="day-image" style="background: url(/images/Day/Afternoon.png);"></div>
+                            <div class="day-image" style="background: url(images/Day/Afternoon.png);"></div>
                             <div class="watering-time">
                                 <h3>10.43PM</h3>
                                 <h3>10.43PM</h3>
@@ -126,7 +128,7 @@
                         </div>
                         <div class="details-block night">
                             <h2>Night</h2>
-                            <div class="day-image" style="background: url(/images/Day/Night.png);"></div>
+                            <div class="day-image" style="background: url(images/Day/Night.png);"></div>
                             <div class="watering-time">
                                 <h3>10.43PM</h3>
                                 <h3>10.43PM</h3>
@@ -157,9 +159,88 @@
 
         </div>
     </div>
-
+                    <!-- Analytics -->
+    <div class="analytics-Container" id="Analytics">
+        <div class="analytics">
+            <div class="header">
+                <h1>Analytics</h1>
+            </div>
+            <div class="analytics-Main">
+                <div class="Chart weekly-Chart">
+                    <div class="barchart-head">
+                        <h2>Sensor Reading</h2>
+                        <select name="week-switch" onchange="filterChart(this)">
+                            <option value="2">Weekly</option>
+                            <option value="1">Monthly</option>
+                        </select>
+                    </div>
+                    <div class="barChart">
+                        <canvas id="barChart"><canvas>
+                    </div>
+                </div>
+                <div class="Chart pie-Chart">
+                    <h2>Plant Growth</h2>
+                    <div class="plantAge">
+                        <canvas id="plantAge"></canvas>
+                    </div>
+                </div>
+                <div class="Chart line-Chart">
+                    <h2>Pump Status</h2>
+                    <div class="pumpReading">
+                        <canvas id="pumpReading"></canvas>
+                    </div>
+                </div>
+                <div class="Chart dot-Chart">
+                    <div class="dotchart-head">
+                        <h2>Daily Reading</h2>
+                        <div class="searchBar">
+                            <input placeholder="Enter date here" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"/>
+                            <button type="submit" name="submitBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </div>
+                    <div class="dailyChart">
+                        <canvas id="dotChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-Container" id="Contact">
+        <div class="contact">
+            <div class="header">
+                <h1>Admin Contact</h1>
+                <span>Feel free to reach out if you need anything.I'm here for you.</span>
+            </div>
+            <div class="contact-Main">
+                <div class="blocks support">
+                    <i class="fa-solid fa-message"></i>
+                    <h3>Chat to support</h3>
+                    <span>For more help</span>
+                    <a href="/">admin@Greenify.com</a>
+                </div>
+                <div class="blocks location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h3>Location</h3>
+                    <span>To visit the office</span>
+                    <a href="/">View on Google Maps</a>
+                </div>
+                <div class="blocks phone">
+                    <i class="fa-solid fa-phone"></i>
+                    <h3>Call</h3>
+                    <span>Mon-Fri from 9AM to 5AM</span>
+                    <p>+91 9999999999</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://kit.fontawesome.com/4cfe4e4dfd.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
     <script src="script.js"></script>
+    <?php include_once "../Charts/Barchart.php" ?>
+    <?php include_once "../Charts/Piechart.php" ?>
+    <?php include_once "../Charts/Linechart.php" ?>
+    <?php include_once "../Charts/Dotchart.php" ?>
 </body>
 </html>

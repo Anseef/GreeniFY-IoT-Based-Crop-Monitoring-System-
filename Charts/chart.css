@@ -1,0 +1,14 @@
+.barChart {
+    width:90%;
+}
+.plantAge {
+    width: 80%;
+    padding: 0;
+    margin: -40px;
+}
+.pumpReading {
+    width: 80%;
+}
+.dailyChart {
+    width: 80%;
+}
