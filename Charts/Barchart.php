@@ -2,7 +2,7 @@
     // Monthly Stat Query
     $entire="SELECT DATE_FORMAT(dates, '%b %e') AS Date,CAST(AVG(mvalue)
      AS UNSIGNED)AS MoistureAVG,CAST(AVG(hvalue) AS UNSIGNED) AS HumidityAVG,
-     CAST(AVG(tvalue) AS UNSIGNED) AS TemperatureAVG FROM chartvalue WHERE
+     CAST(AVG(tvalue) AS UNSIGNED) AS TemperatureAVG FROM Tomato WHERE
     DATE(dates) BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 6 DAY) AND CURRENT_DATE 
     GROUP BY Date";
     $avgResult=mysqli_query($conn, $entire);
@@ -19,7 +19,7 @@
     CAST(AVG(mvalue) AS UNSIGNED) AS MoistureAVG,
     CAST(AVG(hvalue) AS UNSIGNED) AS HumidityAVG,
     CAST(AVG(tvalue) AS UNSIGNED) AS TemperatureAVG 
-    FROM chartvalue 
+    FROM Tomato 
     WHERE DATE(dates) BETWEEN DATE_SUB(LAST_DAY(CURRENT_DATE),
     INTERVAL DAY(LAST_DAY(CURRENT_DATE)) - 1 DAY) 
     AND LAST_DAY(CURRENT_DATE) GROUP BY Period";

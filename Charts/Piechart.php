@@ -1,6 +1,6 @@
 <?php
     // Monthly Stat Query
-    $plantAge="SELECT COUNT(DISTINCT DATE(dates)) AS plantAge FROM chartvalue";
+    $plantAge="SELECT COUNT(DISTINCT DATE(dates)) AS plantAge FROM Tomato";
     $plantAgeResult=mysqli_query($conn,$plantAge);
     if(mysqli_num_rows($plantAgeResult) > 0){
         while($plantAgeRows = mysqli_fetch_assoc($plantAgeResult)){

@@ -19,7 +19,6 @@ body {
     flex-direction: column;
     height: 100vh;
 }
-
 .navbarContainer {
     position: fixed;
     width: 100%;
@@ -69,26 +68,37 @@ body {
 
 .headButtons {
     display: flex;
-    gap: 17px;
+    align-items: center;
+    gap: 25px;
 }
-
+.headButtons span{
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--textColor);
+}
+.headButtons span i {
+    color:var(--textColor);
+    padding-right: .5rem;
+    font-size: 18px;
+}
 .headButtons button {
     font-family: 'Poppins', sans-serif;
     border: 2px black solid;
-    border-radius: 10px;
+    border-radius: 6px;
     color: var(--textColor);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
-    width: 130px;
-    height: 38px;
+    width: 100px;
+    height: 36px;
+    cursor: pointer;
 }
 
 .headButtons .login button {
-    background-color: transparent;
+    background-color: rgba(142, 192, 108, 0.44);
 }
 
 .headButtons .signUp button {
-    background-color: rgba(142, 192, 108, 0.44);
+    background-color: transparent;
 }
 
 .navButton {

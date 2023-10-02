@@ -1,7 +1,7 @@
 <?php
     // Monthly Stat Query
     $pumpStat="SELECT DATE(dates) as Date, DATE_FORMAT(dates, '%a') as Day,
-    COUNT(status) AS pstat_count FROM chartvalue WHERE DATE(dates) BETWEEN
+    COUNT(status) AS pstat_count FROM Tomato WHERE DATE(dates) BETWEEN
     DATE_SUB(CURRENT_DATE, INTERVAL 6 DAY) AND CURRENT_DATE AND status = 1 
     GROUP BY Date ORDER BY Date ASC";
     $pumpStatResult=mysqli_query($conn,$pumpStat);

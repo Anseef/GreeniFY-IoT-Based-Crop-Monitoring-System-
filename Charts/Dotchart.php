@@ -3,10 +3,10 @@
     if(isset($_POST['submitBtn'])){
         $enteredDate=$_POST['date'];
         $searchQuery= "SELECT TIME_FORMAT(TIME(dates), '%h:%i %p') AS timeonly,mvalue,hvalue,
-        tvalue from chartvalue where DATE(dates) = '$enteredDate'";
+        tvalue from Tomato where DATE(dates) = '$enteredDate'";
       }else{
         $searchQuery= "SELECT TIME_FORMAT(TIME(dates), '%h:%i %p') AS timeonly,mvalue,hvalue,
-        tvalue from chartvalue where DATE(dates) LIKE CURRENT_DATE";
+        tvalue from Tomato where DATE(dates) LIKE CURRENT_DATE";
       }
       $searchResult=mysqli_query($conn,$searchQuery);
       if(mysqli_num_rows($searchResult) > 0){

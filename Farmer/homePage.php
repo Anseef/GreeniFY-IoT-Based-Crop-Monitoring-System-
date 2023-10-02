@@ -1,4 +1,6 @@
-<?php include "../connection.php" ?>
+<?php include "../connection.php";
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,12 +29,19 @@
                     </ul>
                 </div>
                 <div class="headButtons">
-                    <div class="login">
-                        <button class="loginButton">Login</button>
-                    </div>
                     <div class="signUp">
-                        <button class="signUpButton">Sign Up</button>
+                        <?php 
+                            if($_SESSION['username'] != '')
+                            {
+                                echo "<span><i class='fa-solid fa-user'></i>".$_SESSION['username']."</span>";
+                            }
+                        ?>
                     </div>
+                    <form action="Registration/query.php" method="post">
+                        <div class="login">
+                            <button type="submit" name="logoutBtn"><?php if($_SESSION['username'] == ''){echo "Login";}else{echo "Logout";}?></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
