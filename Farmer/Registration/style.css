@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    width: auto;
+    height:100vh;
+    background: linear-gradient(to bottom right,rgba(167, 222, 158, 0.2),rgb(188, 240, 193));
+    user-select: none;
+}
+.logoContainer{
+    margin-top: 10px;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logoContainer img {
+    width: 27px;
+}
+.logo{
+    font-weight: 600;
+    color: rgba(11, 39, 15, 1);
+    font-size: 23px;
+}
+h2{
+    padding: 10px;
+}
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.loginContainer, .signUpContainer {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.block
+{
+    width: 330px;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    background-image: linear-gradient(rgba(167, 222, 158, 1),rgba(133, 196, 70, 0));
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+}
+.block h1
+{
+    font-size: 30px;
+    text-align: center;
+    color: #021f15;
+    margin-bottom: 2rem;
+}
+.block .input-box {
+    height:4.2rem;
+}
+.block .field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.block .field i{
+    visibility: hidden;
+    position: absolute;
+    right: 14px;
+    font-size: 15px;
+    transition: all .1s;
+}
+.block .errorOccured .exclamatory{
+    visibility: visible;
+    color: rgb(247, 14, 60);
+}
+.block .errorCleared .success{
+    visibility: visible;
+    color: green
+}
+.block .input-box,.btn {
+    width: 100%;
+}
+.input-box input
+{
+    background: rgba(219,240,221,254);
+    border: 2px solid rgba(219,240,221,254);
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 15px 30px 15px 15px;
+}
+.input-box input,button {
+    width: 100%;
+    outline: none;
+    border-radius: 10px;
+    font-weight: 600;
+    height: 42px;
+}
+.input-box input::placeholder{
+    color: #021f15;
+}
+.input-box input::-moz-focus-inner {
+    background-color: rgba(219,240,221,254);
+}
+.input-box span {
+    transition: all 0.2s;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 500;
+}
+.input-box .error {
+    padding: .5rem;
+    color:rgb(247, 14, 60);
+}
+.block .btn
+{
+    height: 45px;
+    background-image: linear-gradient(to right,rgba(175,214,154,254),rgba(148,189,130,255));
+    box-shadow: 0 0 3px  rgba(0 0 0 .2);
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+}
+.block .signup
+{
+    margin-top: 1rem;
+    font-size: 13px;
+    font-weight: 600;
+}
+.signup p{
+    text-align: center;
+}
+.signup p a
+{
+font-size: 14px;
+font-weight:800;
+color: #020e0a;
+cursor: pointer;
+}
+.shown{
+    visibility: visible;
+}
+.loginContainer .block
+{
+    width: 330px;
+    height: 420px;
+}
+.item1
+{
+    position: absolute;
+    display: flex;
+    width: 126px;
+    height: 196px;
+    left: 0px;
+    top: 0px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.item3
+{
+    position: absolute;
+    width: 145px;
+    height: 194px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 0px;
+    right: 0px;
+}

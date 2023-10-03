@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Redressed&family=Righteous&display=swap');
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(135deg, rgba(216, 235, 216, 1.0), rgba(199, 236, 200, 1.0));
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+.home-Container {
+    min-height: 100vh;
+    color: rgba(11, 39, 15, 1);
+}
+.navbarContainer {
+    width: 100%;
+    height: 5rem;
+}
+.navbar {
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.logoContainer img {
+    width: 27px;
+}
+
+.logoContainer h2 {
+    font-weight: 600;
+    color: rgba(11, 39, 15, 1);
+    font-size: 23px;
+}
+
+.headButtons button,.header button {
+    font-family: 'Poppins', sans-serif;
+    color: rgba(11, 39, 15, 1);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 36px;
+}
+.headButtons button {
+    background-color: rgba(214, 236, 214, 1);
+    border: 2px black solid;
+    border-radius: 6px;
+    width: 100px;
+    transition: transform 0.2s;
+}
+.headButtons button:hover {
+    background-color: rgba(142, 192, 108, 0.44);
+    transform: scale(1.03);
+}
+.home-Main {
+    margin: 5rem auto;
+    width: 80%;
+    min-height: 34rem;
+    background-color: rgba(29, 68, 51, 0.04);
+    padding: 0 2rem 2rem;
+    border-radius: 20px;
+}
+.home-Main .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.home-Main .header h1{
+    padding-top: 2rem;
+    margin: 0;
+    font-size:38px;
+    font-weight: 600;
+}
+.home-Main .header span{
+    font-weight: 600;
+    font-size: 34px;
+}
+.home-Main .add-Farm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(142, 192, 108, 0.44);
+    border: 2px solid black;
+    border-radius: 6px;
+    width: 130px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.add-Farm i {
+    font-size: 18px;
+    padding-right: 5px;
+    color: rgba(11, 39, 15, 1);
+}
+.add-Farm button {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+.add-Farm:hover {
+    background-color: rgba(135, 206, 88, 0.44);
+    transform: scale(1.03);
+}
+.farm-MainContainer {
+    margin-top: 5rem;
+}
+.farm-MainContainer h1 {
+    text-align: center;
+}
+.farm-Main {
+    display: flex;
+    flex-flow:wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-around;
+}
+.farm-Main .blocks {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: rgb(235, 247, 235);
+    border-radius: 15px;
+    height: 200px;
+    justify-content: center;
+}
+.farm-Main .blocks i {
+    color: rgba(11, 39, 15, 1);
+    font-size: 24px;
+    padding-bottom: 1rem;
+}
+.farm-Main .blocks h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+.farm-Main .blocks span {
+    color: #687065;
+}
+.farm-Main .blocks p, .farm-Main .blocks a{
+    margin-top: 2rem;
+    background-color: rgba(161, 216, 154, 1);
+    text-decoration: none;
+    color: rgba(11, 39, 15, 1);
+    padding: .7rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+}

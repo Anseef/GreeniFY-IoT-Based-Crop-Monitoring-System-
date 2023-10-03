@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="mainContainer">
-        <div class="item3">
-        </div>
+        <div class="item1" style="background-image: url(../images/hanging.png)"></div>
         <div class="logoContainer">
-            <div class="item2">
-            </div>
-            <h2 class="logo">greeniFY</h2>
+            <img src="../images/logo1.png">
+            <span class="logo">greeniFY</span>
         </div>
 
              <!--login part -->
@@ -94,7 +92,7 @@
                 </div>
             </div>
 
-    <div class="item1"></div>
+    <div class="item3" style="background-image: url(../images/stand.png)">
     </div>
 </body>
 <?php include "fetchdata.php" ?>
