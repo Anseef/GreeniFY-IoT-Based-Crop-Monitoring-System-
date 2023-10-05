@@ -58,8 +58,8 @@ body {
     background-color: rgba(142, 192, 108, 0.44);
     transform: scale(1.03);
 }
-.home-Main {
-    margin: 5rem auto;
+.home-Main, .dashboard {
+    margin: 3rem auto;
     width: 80%;
     min-height: 34rem;
     background-color: rgba(29, 68, 51, 0.04);
@@ -151,4 +151,106 @@ body {
     border-radius: 10px;
     font-weight: 600;
     text-align: center;
+}
+
+/* Dashboard */
+
+.dashHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dashHeader .heading h1{
+    margin: 0;
+}.dashHeader .backBtn a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(11, 39, 15, 1);
+}
+.dash-Main {
+    border-radius: 15px;
+    display: flex;
+    gap: 1rem;
+    flex-flow: wrap;
+}
+.Chart{
+    background-color: #fff;
+    padding: 1rem 0 1rem 0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.Chart h2 {
+    font-weight: 600;
+    color: rgba(11, 39, 15, 1);
+}
+.weekly-Chart .barchart-head {
+    width: 80%;
+    display: flex;
+    justify-content:space-between; 
+}
+.weekly-Chart {
+    width: 555px;
+    height: 270px;
+    background-color: rgb(245, 252, 243);
+}
+.pie-Chart {
+    width: 35%;
+    height: 270px;
+    background-color: rgb(245, 252, 243);
+}
+.info-Container {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+}
+.farmer-Info, .sensor-Info {
+    padding: 2rem;
+    width:50%;
+    height: 150px;
+    background-color: rgb(245, 252, 243);
+    border-radius: 15px;
+}
+.farmer-Info .farmer-list {
+    color: rgba(11, 39, 15, 1);
+}
+.farmer-Info table {
+    border-collapse: separate;
+    border-spacing: 8px;
+}
+.farmer-Info th {
+    font-weight: 600;
+    padding-right: 50px;
+}
+.farmer-Info button {
+    margin-top: 5px;
+    background-color: rgba(161, 216, 154, 1);
+    color: rgba(11, 39, 15, 1);
+    padding: .3rem;
+    border: 0;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    width: 100px;
+    font-family: 'Poppins', sans-serif;
+}
+.sensor-Info {
+    background-color: rgba(176, 240, 166, 0.39);
+}
+.sensor-Info .header {
+    display: flex;
+    justify-content: space-between;
+}
+.sensor-Info h2 ,.farmer-Info h2 {
+    margin: 0;
+    font-weight: 600;
+    color: rgba(11, 39, 15, 1);
+}
+.sensor-Info .sensor-block {
+    display: flex;
+    justify-content: space-between;
 }

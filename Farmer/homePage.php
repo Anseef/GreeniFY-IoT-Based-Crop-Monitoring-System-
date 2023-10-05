@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Charts/chart.css">
     <title>GreeniFY</title>
 </head>
@@ -62,15 +62,16 @@
     </div>
 
     <!--                 DASHBOARD             -->
+    <?php include "dashboard.php" ?>
     <div class="dash-Container" id="Dashboard">
         <div class="dashboard">
             <div class="dashHeader">
                 <div class="heading">
                     <h1>Dashboard</h1>
-                    <p>Hi Sam, Welcome to GreeniFY</p>
+                    <p>Hi <?php echo $_SESSION['username'] ?>, Welcome to GreeniFY</p>
                 </div>
-                <h1>Tomato Farm</h1>
-                <span>28 August 2023</span>
+                <h1><?php echo $farmData['farmName'] ?></h1>
+                <span><?php echo date('d-m-Y') ?></span>
             </div>
 
             <div class="dashTiles">
@@ -78,28 +79,52 @@
                     <div class="sensor-img" style="background-image: url(images/Sensors/moisture.png);"></div>
                     <div class="sensor-value">
                         <h2>Moisture</h2>
-                        <span>75%</span>
+                        <span>
+                            <?php if(isset($_SESSION['username'])){
+                                echo $moistureValue."%";
+                            }else{
+                                echo "0";
+                            }?>
+                        </span>
                     </div>
                 </div>
                 <div class="tile temperature">
                     <div class="sensor-img" style="background-image: url(images/Sensors/temperature.png);"></div>
                     <div class="sensor-value">
                         <h2>Temperature</h2>
-                        <span>75%</span>
+                        <span>
+                            <?php if(isset($_SESSION['username'])){
+                                echo $temperatureValue."%";
+                            }else{
+                                echo "0";
+                            }?>
+                        </span>
                     </div>
                 </div>
                 <div class="tile humidity">
                     <div class="sensor-img" style="background-image: url(images/Sensors/humidity.png);"></div>
                     <div class="sensor-value">
                         <h2>Humidity</h2>
-                        <span>75%</span>
+                        <span>
+                            <?php if(isset($_SESSION['username'])){
+                                echo $humidityValue."%";
+                            }else{
+                                echo "0";
+                            }?>
+                        </span>
                     </div>
                 </div>
                 <div class="tile sensors">
                     <div class="sensor-img" style="background-image: url(images/Sensors/soil-moisture.png);"></div>
                     <div class="sensor-value">
                         <h2>Sensors</h2>
-                        <span>75%</span>
+                        <span>
+                            <?php if(isset($_SESSION['username'])){
+                                echo "3";
+                            }else{
+                                echo "0";
+                            }?>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -114,7 +139,7 @@
                         <div class="header-right">
                             <div class="searchBar">
                                 <input placeholder="Enter date here" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"/>
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <button type="submit" name="datebtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
                         </div>
                     </div>

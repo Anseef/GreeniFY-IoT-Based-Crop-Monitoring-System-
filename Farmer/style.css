@@ -191,10 +191,12 @@ h2 {
 .dashHeader {
     display: flex;
     justify-content: space-between;
-    align-items: first baseline;
+    align-items: center;
 }
-
-.dashHeader .heading h1, p{
+.dashHeader {
+    margin-top: .5rem;
+}
+.dashHeader .heading h1, .dashHeader .heading p{
     margin: 0;
 }
 
@@ -216,6 +218,8 @@ h2 {
     border: 2px solid black;
     font-size: 13px;
     font-weight: 500;
+    width: 100px;
+    text-align: center;
 }
 
 .dashboard .dashTiles {
@@ -224,7 +228,7 @@ h2 {
 }
 
 .dashTiles .tile {
-    margin-top: 3rem;
+    margin-top: 2.4rem;
     padding: 1rem;
     background-color: #fff;
     border-radius: 20px;
@@ -305,7 +309,11 @@ span {
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
 }
-
+.searchBar button{
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
 .dash-Main .blocks {
     margin-top: 2rem;
     display: flex;
