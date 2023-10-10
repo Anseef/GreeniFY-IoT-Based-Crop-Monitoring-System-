@@ -34,5 +34,18 @@
             }
             echo json_encode($Dates);
         }
+        //Sensor Status 
+        if($moistureValue && $humidityValue && $temperatureValue){
+            $error = 0;
+            if($moistureValue < 15 || $moistureValue > 80) {
+                $error = 1;
+            }
+            if($temperatureValue < 20 || $temperatureValue > 45) {
+                $error = 2;
+            }
+            if($humidityValue < 40  || $humidityValue > 110) {
+                $error = 3;
+            }
+        }
     }
 ?>

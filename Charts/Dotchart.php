@@ -66,14 +66,23 @@
                 layout: {
                     padding: {
                         bottom: 20,
-                        top: 20,
+                        top: 10,
                         left: 20,
-                        right: 20
+                        right: 10
                     }
                 },
                 plugins: {
                     legend: {
-                        display: false,
+                        labels: {
+                            boxWidth: 7,
+                            boxHeight: 7,
+                            usePointStyle:true,
+                            font: {
+                                weight: 500,
+                                size: 12,
+                            },
+                            color: 'rgba(11, 39, 15, 1)'
+                        },
                     }
                 },
                 scales: {
@@ -87,9 +96,11 @@
                         ticks: {
                             color: 'black',
                             font: {
-                                weight: 300,
-                                size: 12  // Increase font weight of x-axis labels
+                                weight: 500,
+                                size: 10 // Increase font weight of x-axis labels
                             },
+                            padding: 10,
+                            autoSkip: true
                         }
                     },
                     y: {
@@ -104,9 +115,11 @@
                             stepSize: 20,
                             color: 'black',
                             font: {
-                                weight: 200,
+                                weight: 500,
                                 size: 10
-                            }
+                            },
+                            padding: 10,
+                            autoSkip: true
                         },
                     }
                 }

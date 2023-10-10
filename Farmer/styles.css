@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Redressed&family=Righteous&display=swap');
+
+:root {
+    --primaryColor: #1e90ff;
+    --textColor: rgba(11, 39, 15, 1);
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(135deg, rgba(216, 235, 216, 1.0), rgba(199, 236, 200, 1.0));
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+
+.home-Container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.navbarContainer {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    height: 5rem;
+}
+
+.navbar {
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+}
+
+.navbarContainer.scrolled {
+    background: linear-gradient(135deg, rgba(216, 235, 216, 1.0), rgba(199, 236, 200, 1.0));
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+    z-index: 100;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.logoContainer img {
+    width: 27px;
+}
+
+.logoContainer h2 {
+    font-weight: 600;
+    color: var(--textColor);
+    font-size: 23px;
+}
+
+.headList ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 34px;
+    font-weight: 600;
+}
+.headList a{
+    text-decoration: none;
+    color: var(--textColor);
+}
+.headButtons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.headButtons span{
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--textColor);
+}
+.headButtons span i {
+    color:var(--textColor);
+    padding-right: .5rem;
+    font-size: 18px;
+}
+.headButtons button {
+    font-family: 'Poppins', sans-serif;
+    border: 2px black solid;
+    border-radius: 6px;
+    color: var(--textColor);
+    font-size: 18px;
+    font-weight: 600;
+    width: 100px;
+    height: 36px;
+    cursor: pointer;
+}
+
+.headButtons .login button {
+    background-color: rgba(142, 192, 108, 0.44);
+}
+
+.headButtons .signUp button {
+    background-color: transparent;
+}
+
+.navButton {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 5%;
+    gap: 10px;
+}
+
+.navButton a {
+    text-decoration: none;
+}
+
+.navButton i {
+    font-size: 12px;
+    color: #889C81;
+    transition: all 0.2s;
+}
+
+.navButton .active {
+    font-size: 14px;
+    color: rgba(44, 72, 44, 1);
+}
+
+.bodyContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    font-family: 'Redressed', cursive;
+}
+
+.leftContainer h1,
+h2 {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.leftContainer h1 {
+    font-size: 180px;
+    color: var(--textColor);
+    margin: -120px 0px -50px -100px;
+}
+
+.leftContainer h2 {
+    font-size: 135px;
+    color: rgba(99, 110, 103, 0.82);
+    padding-left: 350px;
+}
+
+.rightContainer {
+    width: 35%;
+    background-image: url(images/HomePlant.png);
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position-y: center;
+}
+
+/*Dashboard*/
+
+.dash-Container, .analytics-Container, .contact-Container {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    color: var(--textColor);
+}
+
+.dashboard ,.analytics,.contact{
+    width: 80%;
+    height: 40rem;
+    background-color: rgba(29, 68, 51, 0.04);
+    margin-top: 4rem;
+    padding: 0 2rem 2rem;
+    border-radius: 20px;
+}
+
+.dashHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dashHeader {
+    margin-top: .5rem;
+}
+.dashHeader .heading h1, .dashHeader .heading p{
+    margin: 0;
+}
+
+.dashHeader .heading p {
+    font-size: 13px;
+    color: #687065;
+    font-weight: 500;
+}
+
+.dashHeader .heading h1,.analytics .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.dashHeader span {
+    background-color: #fff;
+    padding: .4rem;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 13px;
+    font-weight: 500;
+    width: 100px;
+    text-align: center;
+}
+
+.dashboard .dashTiles {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashTiles .tile {
+    margin-top: 2.4rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 20px;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-around;
+}
+
+.tile .sensor-img {
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+
+.tile h2,
+span {
+    font-weight: 600;
+}
+
+.tile span {
+    color: rgba(133, 196, 70, 1);
+    font-size: 30px;
+    padding-left: 2rem;
+}
+
+/*Watering Details */
+
+.dash-Main {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    height: 45vh;
+}
+
+.watering-Details {
+    background-color: white;
+    width: 70%;
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-left h1,.sensor-Status h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.header-left span {
+    color: #687065;
+    font-size: 14px;
+}
+
+.header-right .searchBar, .dot-Chart .searchBar{
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    border-radius: 15px;
+    border: 2px solid black;
+}
+
+.searchBar input, .dot-Chart input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 130px;
+}
+
+.searchBar input::placeholder {
+    color: var(--textColor);
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.searchBar button{
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.dash-Main .blocks {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.blocks .details-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 210px;
+    height: 190px;
+    border-radius: 15px;
+    border: 2px solid black;
+    background-color: rgb(236, 245, 238);
+}
+
+.details-block .day-image {
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+}
+
+.details-block h2 {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+.details-block .watering-time h3 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+}
+.details-block span {
+    padding: 1rem;
+    font-weight: 500;
+}
+.details-block .watering-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    width: 100%;
+}
+.details-block ul{
+    text-align: center;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.details-block .watering-time::-webkit-scrollbar {
+    width: 7px;
+}
+.details-block .watering-time::-webkit-scrollbar-thumb {
+    background: rgba(142, 192, 108, 0.44);
+    border-radius: 8px; 
+}
+.details-block li {
+    padding: .3rem;
+    font-size: 16px;
+    font-weight: 600;
+}
+/*Sensor status */
+
+.sensor-Status {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(167, 222, 158, 1), rgba(133, 196, 70, 0));
+    width: 20%;
+    border-radius: 15px;
+}
+.sensor-Status .sensor-details {
+    display: flex;
+    align-items: center;
+    gap:4rem;
+}
+.sensor-details i {
+    font-size: 35px;
+}
+.sensor-details h3 {
+    font-weight: 600;
+}
+
+/* Analytics */
+.analytics .header h1 {
+    margin: 0;
+    padding-top: 1rem;
+}
+.analytics-Main {
+    padding: 1rem;
+    border-radius: 15px;
+    display: flex;
+    gap: 1rem;
+    flex-flow: wrap;
+    justify-content: left;
+}
+.Chart{
+    background-color: #fff;
+    padding: 1rem 0 1rem 0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: ''Poppins', sans-serif';
+}
+.Chart h2 {
+    font-weight: 600;
+}
+.Chart .chartError {
+    margin-top: 5rem;
+}
+.weekly-Chart .barchart-head {
+    width: 80%;
+    display: flex;
+    justify-content:space-between; 
+}
+.barchart-head select {
+    border: 2px solid black;
+    border-radius: 6px;
+    background-color: white;
+    outline: none;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    height: 30px;
+    color: var(--textColor);
+}
+.weekly-Chart {
+    width: 555px;
+    height: 270px;
+    background-color: rgb(251, 252, 250);
+}
+.pie-Chart {
+    width: 35%;
+    height: 270px;
+}
+.line-Chart {
+    width: 40%;
+    height: 230px;
+    background-color: rgb(249, 250, 248);
+}
+.dot-Chart .dotchart-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+.dot-Chart {
+    width: 40%;
+    height: 230px;
+}
+.dot-Chart button{
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Contact */
+.contact .header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contact .header h1{
+    padding-top: 2rem;
+    margin: 0;
+    font-size:56px;
+}
+.contact .header span{
+    color: #687065;
+    font-weight: 500;
+}
+.contact-Main {
+    margin-top: 6rem;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+.contact-Main .blocks {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: rgb(235, 247, 235);
+    border-radius: 15px;
+    height: 200px;
+    justify-content: center;
+}
+.contact-Main .blocks i {
+    color: var(--textColor);
+    font-size: 24px;
+    padding-bottom: 1rem;
+}
+.contact-Main .blocks h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+.contact-Main .blocks span {
+    color: #687065;
+}
+.contact-Main .blocks p, .contact-Main .blocks a{
+    margin-top: 2rem;
+    background-color: rgba(161, 216, 154, 1);
+    text-decoration: none;
+    color: var(--textColor);
+    padding: .7rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+}

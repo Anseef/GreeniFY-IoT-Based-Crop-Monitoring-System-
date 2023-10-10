@@ -90,7 +90,16 @@
                 },
                 plugins: {
                     legend: {
-                        display: false,
+                        labels: {
+                        boxWidth: 7,
+                        boxHeight: 7,
+                        usePointStyle:true,
+                        font: {
+                                weight: 500,
+                                size: 12,
+                            },
+                        color: 'rgba(11, 39, 15, 1)'
+                        }
                     }
                 },
                 scales: {

@@ -24,7 +24,7 @@
                 label: 'Reading Per Day',
                 data: pumpStat.map(entry => entry.pstat_count),
                 backgroundColor: 'transparent',
-                borderColor: 'rgba(0, 113, 64, 1)',
+                borderColor: 'rgba(0, 113, 64, 0.6)',
                 borderWidth: 3,
                 pointBorderColor: 'transparent',
                 pointBorderWidth: 4,
@@ -39,7 +39,16 @@
         options: {
             plugins: {
                 legend: {
-                    display: false,
+                    labels: {
+                        boxWidth: 7,
+                        boxHeight: 7,
+                        usePointStyle:true,
+                        font: {
+                                weight: 500,
+                                size: 12,
+                            },
+                        color: 'rgba(11, 39, 15, 1)'
+                    }
                 }
             },
             scales: {

@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../Charts/chart.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../Charts/charts.css">
     <title>GreeniFY</title>
 </head>
 <body>
@@ -22,10 +22,10 @@
                 </div>
                 <div class="headList">
                     <ul>
-                        <li>Home</li>
-                        <li>Dashboard</li>
-                        <li>Analytics</li>
-                        <li>Contact</li>
+                        <li><a href="#Home">Home</a></li>
+                        <li><a href="#Dashboard">Dashboard</a></li>
+                        <li><a href="#Analytics">Analytics</a></li>
+                        <li><a href="#Contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="headButtons">
@@ -150,21 +150,21 @@
                             <h2>Morning</h2>
                             <div class="day-image" style="background: url(images/Day/Morning.png);"></div>
                             <div class="watering-time">
-                                <?php if(!$_SESSION['username']){echo "<span>No records</span>";} ?>
+                                <?php if(!$_SESSION['username'] || !$_POST){echo "<span>No records</span>";} ?>
                             </div>
                         </div>
                         <div class="details-block afternoon">
                             <h2>Afternoon</h2>
                             <div class="day-image" style="background: url(images/Day/Afternoon.png);"></div>
                             <div class="watering-time">
-                                <?php if(!$_SESSION['username']){echo "<span>No records</span>";} ?>
+                                <?php if(!$_SESSION['username'] || !$_POST){echo "<span>No records</span>";} ?>
                             </div>
                         </div>
                         <div class="details-block night">
                             <h2>Night</h2>
                             <div class="day-image" style="background: url(images/Day/Night.png);"></div>
                             <div class="watering-time">
-                                <?php if(!$_SESSION['username']){echo "<span>No records</span>";} ?>
+                                <?php if(!$_SESSION['username'] || !$_POST){echo "<span>No records</span>";} ?>
                             </div>
                         </div>
                     </div>
@@ -175,15 +175,30 @@
                     <div class="status-blog">
                         <div class="sensor-details">
                             <h3>Moisture Sensor</h3>
-                            <i class="fa-solid fa-toggle-on"></i>
+                            <?php if($error == 1 || !$_SESSION['username']){
+                                echo "<i class='fa-solid fa-toggle-off'></i>";
+                            }else{
+                                echo "<i class='fa-solid fa-toggle-on'></i>";
+                            }
+                            ?>
                         </div>
                         <div class="sensor-details">
                             <h3>Temperature Sensor</h3>
-                            <i class="fa-solid fa-toggle-on"></i>
+                            <?php if($error == 2 || !$_SESSION['username']){
+                                echo "<i class='fa-solid fa-toggle-off'></i>";
+                            }else{
+                                echo "<i class='fa-solid fa-toggle-on'></i>";
+                            }
+                            ?>
                         </div>
                         <div class="sensor-details">
                             <h3>Humidity Sensor</h3>
-                            <i class="fa-solid fa-toggle-on"></i>
+                            <?php if($error == 3 || !$_SESSION['username']){
+                                echo "<i class='fa-solid fa-toggle-off'></i>";
+                            }else{
+                                echo "<i class='fa-solid fa-toggle-on'></i>";
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -240,10 +255,6 @@
                 <div class="Chart dot-Chart">
                     <div class="dotchart-head">
                         <h2>Daily Reading</h2>
-                        <div class="searchBar">
-                            <input placeholder="Enter date here" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"/>
-                            <button type="submit" name="submitBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </div>
                     </div>
                     <?php 
                         if(!$_SESSION['username']){
