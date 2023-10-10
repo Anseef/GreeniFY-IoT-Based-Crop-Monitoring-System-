@@ -1,8 +1,10 @@
 <?php
+    session_start();
+    $tableName = $_SESSION['tableName'];
     // Monthly Stat Query
     $entire="SELECT DATE_FORMAT(dates, '%b %e') AS Date,CAST(AVG(mvalue)
      AS UNSIGNED)AS MoistureAVG,CAST(AVG(hvalue) AS UNSIGNED) AS HumidityAVG,
-     CAST(AVG(tvalue) AS UNSIGNED) AS TemperatureAVG FROM Tomato WHERE
+     CAST(AVG(tvalue) AS UNSIGNED) AS TemperatureAVG FROM $tableName WHERE
     DATE(dates) BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 6 DAY) AND CURRENT_DATE 
     GROUP BY Date";
     $avgResult=mysqli_query($conn, $entire);
@@ -19,7 +21,7 @@
     CAST(AVG(mvalue) AS UNSIGNED) AS MoistureAVG,
     CAST(AVG(hvalue) AS UNSIGNED) AS HumidityAVG,
     CAST(AVG(tvalue) AS UNSIGNED) AS TemperatureAVG 
-    FROM Tomato 
+    FROM $tableName 
     WHERE DATE(dates) BETWEEN DATE_SUB(LAST_DAY(CURRENT_DATE),
     INTERVAL DAY(LAST_DAY(CURRENT_DATE)) - 1 DAY) 
     AND LAST_DAY(CURRENT_DATE) GROUP BY Period";
@@ -35,110 +37,112 @@
     var currentData = <?php echo json_encode($entireArray) ?>;
     var fourWeekData = <?php echo json_encode($fourWeekAvgArray) ?>;
     var ctx = document.getElementById('barChart').getContext('2d');
-    var data = {
-        labels: currentData.map(entry => entry.Date),
-        datasets: [
-            {
-                label: 'Moisture',
-                data: currentData.map(entry => entry.MoistureAVG),
-                backgroundColor: 'rgba(164, 209, 157, 1)',
-                borderColor: 'rgba(164, 209, 157, 1)',
-                borderWidth: 0, //line width
-                borderRadius:5, //bar radius
-                tension:0.4,
-                pointBorderRadius: 4,
-                pointBorderColor:'transparent'
-            },
-            {
-                label: 'Temperature',
-                data: currentData.map(entry => entry.TemperatureAVG),
-                backgroundColor: 'rgba(92, 114, 92, 1)',
-                borderColor: 'rgba(92, 114, 92, 1)',
-                borderWidth: 0,
-                borderRadius:5,
-                tension:0.4,
-                pointBorderRadius: 4,
-                pointBorderColor:'transparent'
-            },
-            {
-                label: 'Humidity',
-                data: currentData.map(entry => entry.HumidityAVG),
-                backgroundColor: 'rgba(153, 177, 153, 1)',
-                borderColor: 'rgba(153, 177, 153, 1)',
-                borderWidth: 0,
-                borderRadius:5,
-                tension:0.4,
-                pointBorderRadius: 4,
-                pointBorderColor:'transparent'
-            }
-        ]
-    };
-    var barChart = new Chart(ctx, {
-    type: 'bar',
-    data: data,
-    options: {
-        layout: {
-            padding: {
-                bottom: 20,
-                top: 20,
-                left: 20,
-                right: 20
-            }
-        },
-        plugins: {
-            legend: {
-                display: false,
-            }
-        },
-        scales: {
-            x: {
-                borderColor:'green',
-                borderWidth:3,
-                grid: {
-                    display: false,
-                    borderWidth: 0
+    if(currentData){
+        var data = {
+            labels: currentData.map(entry => entry.Date),
+            datasets: [
+                {
+                    label: 'Moisture',
+                    data: currentData.map(entry => entry.MoistureAVG),
+                    backgroundColor: 'rgba(164, 209, 157, 1)',
+                    borderColor: 'rgba(164, 209, 157, 1)',
+                    borderWidth: 0, //line width
+                    borderRadius:5, //bar radius
+                    tension:0.4,
+                    pointBorderRadius: 4,
+                    pointBorderColor:'transparent'
                 },
-                ticks: {
-                    color: 'black',
-                    font: {
-                        weight: 300,
-                        size: 12  // Increase font weight of x-axis labels
-                    },
+                {
+                    label: 'Temperature',
+                    data: currentData.map(entry => entry.TemperatureAVG),
+                    backgroundColor: 'rgba(92, 114, 92, 1)',
+                    borderColor: 'rgba(92, 114, 92, 1)',
+                    borderWidth: 0,
+                    borderRadius:5,
+                    tension:0.4,
+                    pointBorderRadius: 4,
+                    pointBorderColor:'transparent'
+                },
+                {
+                    label: 'Humidity',
+                    data: currentData.map(entry => entry.HumidityAVG),
+                    backgroundColor: 'rgba(153, 177, 153, 1)',
+                    borderColor: 'rgba(153, 177, 153, 1)',
+                    borderWidth: 0,
+                    borderRadius:5,
+                    tension:0.4,
+                    pointBorderRadius: 4,
+                    pointBorderColor:'transparent'
                 }
-            },
-            y: {
-                border: {
-                    display: false
-                },
-                grid: {
-                    display: false
-                },
-                min: 20,
-                ticks: {
-                    stepSize: 20,
-                    color: 'black',
-                    font: {
-                        weight: 200,
-                        size: 10
+            ]
+        };
+        var barChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                layout: {
+                    padding: {
+                        bottom: 20,
+                        top: 20,
+                        left: 20,
+                        right: 20
                     }
                 },
-                afterDraw: function (chart) {
-                    var ctx = chart.ctx;
-                    var yAxis = chart.scales['y'];
-                    ctx.save();
-                    ctx.setLineDash([10]); // Set line dash pattern
-                    ctx.strokeStyle = 'transparent'; // Set line color
-                    ctx.beginPath();
-                    var y = yAxis.getPixelForValue(yAxis.min); // Position of the dashed line
-                    ctx.moveTo(chart.chartArea.left, y);
-                    ctx.lineTo(chart.chartArea.right, y);
-                    ctx.stroke();
-                    ctx.restore();
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                scales: {
+                    x: {
+                        borderColor:'green',
+                        borderWidth:3,
+                        grid: {
+                            display: false,
+                            borderWidth: 0
+                        },
+                        ticks: {
+                            color: 'black',
+                            font: {
+                                weight: 300,
+                                size: 12  // Increase font weight of x-axis labels
+                            },
+                        }
+                    },
+                    y: {
+                        border: {
+                            display: false
+                        },
+                        grid: {
+                            display: false
+                        },
+                        min: 20,
+                        ticks: {
+                            stepSize: 20,
+                            color: 'black',
+                            font: {
+                                weight: 200,
+                                size: 10
+                            }
+                        },
+                        afterDraw: function (chart) {
+                            var ctx = chart.ctx;
+                            var yAxis = chart.scales['y'];
+                            ctx.save();
+                            ctx.setLineDash([10]); // Set line dash pattern
+                            ctx.strokeStyle = 'transparent'; // Set line color
+                            ctx.beginPath();
+                            var y = yAxis.getPixelForValue(yAxis.min); // Position of the dashed line
+                            ctx.moveTo(chart.chartArea.left, y);
+                            ctx.lineTo(chart.chartArea.right, y);
+                            ctx.stroke();
+                            ctx.restore();
+                        }
+                    }
                 }
             }
-        }
+        }); 
     }
-});
     function filterChart(filter){
     if(filter.value == 1){
         var currentDate = new Date();

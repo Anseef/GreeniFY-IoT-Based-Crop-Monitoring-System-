@@ -73,7 +73,7 @@
                 <h1><?php echo $farmData['farmName'] ?></h1>
                 <span><?php echo date('d-m-Y') ?></span>
             </div>
-
+            <?php print_r($Dates); ?>
             <div class="dashTiles">
                 <div class="tile moisture">
                     <div class="sensor-img" style="background-image: url(images/Sensors/moisture.png);"></div>
@@ -134,12 +134,14 @@
                     <div class="header">
                         <div class="header-left">
                             <h1>Watering Details</h1>
-                            <span>Today</span>
+                            <span class="currDate">Today</span>
                         </div>
                         <div class="header-right">
                             <div class="searchBar">
-                                <input placeholder="Enter date here" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"/>
-                                <button type="submit" name="datebtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <form>
+                                    <input placeholder="Enter date here" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dateField"/>
+                                    <button type="submit" name="datebtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -148,25 +150,21 @@
                             <h2>Morning</h2>
                             <div class="day-image" style="background: url(images/Day/Morning.png);"></div>
                             <div class="watering-time">
-                                <h3>10.43PM</h3>
-                                <h3>10.43PM</h3>
+                                <?php if(!$_SESSION['username']){echo "<span>No records</span>";} ?>
                             </div>
                         </div>
                         <div class="details-block afternoon">
                             <h2>Afternoon</h2>
                             <div class="day-image" style="background: url(images/Day/Afternoon.png);"></div>
                             <div class="watering-time">
-                                <h3>10.43PM</h3>
-                                <h3>10.43PM</h3>
+                                <?php if(!$_SESSION['username']){echo "<span>No records</span>";} ?>
                             </div>
                         </div>
                         <div class="details-block night">
                             <h2>Night</h2>
                             <div class="day-image" style="background: url(images/Day/Night.png);"></div>
                             <div class="watering-time">
-                                <h3>10.43PM</h3>
-                                <h3>10.43PM</h3>
-                                <h3>10.43PM</h3>
+                                <?php if(!$_SESSION['username']){echo "<span>No records</span>";} ?>
                             </div>
                         </div>
                     </div>
@@ -208,20 +206,35 @@
                             <option value="1">Monthly</option>
                         </select>
                     </div>
-                    <div class="barChart">
-                        <canvas id="barChart"><canvas>
+                    <?php 
+                        if(!$_SESSION['username']){
+                            echo "<span class='chartError'>No Results Found</span>";
+                        }
+                    ?>
+                    <div class='barChart'>
+                        <canvas id='barChart'><canvas>
                     </div>
                 </div>
                 <div class="Chart pie-Chart">
                     <h2>Plant Growth</h2>
-                    <div class="plantAge">
-                        <canvas id="plantAge"></canvas>
+                    <?php 
+                        if(!$_SESSION['username']){
+                            echo "<span class='chartError'>No Results Found</span>";
+                        }
+                    ?>
+                    <div class='plantAge'>
+                        <canvas id='plantAge'></canvas>
                     </div>
                 </div>
                 <div class="Chart line-Chart">
                     <h2>Pump Status</h2>
-                    <div class="pumpReading">
-                        <canvas id="pumpReading"></canvas>
+                    <?php 
+                        if(!$_SESSION['username']){
+                            echo "<span class='chartError'>No Results Found</span>";
+                        }
+                    ?>
+                    <div class='pumpReading'>
+                        <canvas id='pumpReading'></canvas>
                     </div>
                 </div>
                 <div class="Chart dot-Chart">
@@ -232,8 +245,13 @@
                             <button type="submit" name="submitBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
                     </div>
-                    <div class="dailyChart">
-                        <canvas id="dotChart"></canvas>
+                    <?php 
+                        if(!$_SESSION['username']){
+                            echo "<span class='chartError'>No Results Found</span>";
+                        }
+                    ?>
+                    <div class='dailyChart'>
+                        <canvas id='dotChart'></canvas>
                     </div>
                 </div>
             </div>
@@ -272,6 +290,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
     <script src="script.js"></script>
+    <script src="dataFetch.js"></script>
     <?php include_once "../Charts/Barchart.php" ?>
     <?php include_once "../Charts/Piechart.php" ?>
     <?php include_once "../Charts/Linechart.php" ?>

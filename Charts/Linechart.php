@@ -1,7 +1,9 @@
 <?php
+    session_start();
+    $tableName = $_SESSION['tableName'];
     // Monthly Stat Query
     $pumpStat="SELECT DATE(dates) as Date, DATE_FORMAT(dates, '%a') as Day,
-    COUNT(status) AS pstat_count FROM Tomato WHERE DATE(dates) BETWEEN
+    COUNT(status) AS pstat_count FROM $tableName WHERE DATE(dates) BETWEEN
     DATE_SUB(CURRENT_DATE, INTERVAL 6 DAY) AND CURRENT_DATE AND status = 1 
     GROUP BY Date ORDER BY Date ASC";
     $pumpStatResult=mysqli_query($conn,$pumpStat);
@@ -14,7 +16,8 @@
 <script>
     var pumpStat = <?php echo json_encode($entirePumpStat) ?>;
     var ctx = document.getElementById('pumpReading').getContext('2d');
-    var data = {
+    if(pumpStat){
+        var data = {
         labels: pumpStat.map(entry => entry.Day),
         datasets: [
             {
@@ -31,43 +34,45 @@
         ]
     };
     var pumpReading = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
-            }
-        },
-        scales: {
-            x: {
-                grid: {
-                    display : false
-                },
-                ticks: {
-                    color: 'black',
-                    font: {
-                        weight: 300,
-                        size: 12
-                    }
+        type: 'line',
+        data: data,
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
                 }
             },
-            y: {
-                suggestedMin: 0,
-                suggestedMax: 6,
-                grid: {
-                    display: false
+            scales: {
+                x: {
+                    grid: {
+                        display : false
+                    },
+                    ticks: {
+                        color: 'black',
+                        font: {
+                            weight: 300,
+                            size: 12
+                        }
+                    }
                 },
-                ticks: {
-                    stepSize: 2,
-                    color: 'black',
-                    font: {
-                        weight: 200,
-                        size: 10
+                y: {
+                    suggestedMin: 0,
+                    suggestedMax: 6,
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        stepSize: 2,
+                        color: 'black',
+                        font: {
+                            weight: 200,
+                            size: 10
+                        }
                     }
                 }
             }
         }
+    });
     }
-});
+
 </script>

@@ -321,11 +321,11 @@ span {
 }
 
 .blocks .details-block {
-    display: grid;
-    place-items: center;
-    padding: 1rem;
-    width: 180px;
-    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 210px;
+    height: 190px;
     border-radius: 15px;
     border: 2px solid black;
     background-color: rgb(236, 245, 238);
@@ -338,15 +338,44 @@ span {
 }
 
 .details-block h2 {
+    margin-top: 1rem;
     font-weight: 600;
 }
-
 .details-block .watering-time h3 {
     margin: 0;
     font-weight: 500;
     font-size: 18px;
 }
-
+.details-block span {
+    padding: 1rem;
+    font-weight: 500;
+}
+.details-block .watering-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    width: 100%;
+}
+.details-block ul{
+    text-align: center;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.details-block .watering-time::-webkit-scrollbar {
+    width: 7px;
+}
+.details-block .watering-time::-webkit-scrollbar-thumb {
+    background: rgba(142, 192, 108, 0.44);
+    border-radius: 8px; 
+}
+.details-block li {
+    padding: .3rem;
+    font-size: 16px;
+    font-weight: 600;
+}
 /*Sensor status */
 
 .sensor-Status {
@@ -394,6 +423,9 @@ span {
 }
 .Chart h2 {
     font-weight: 600;
+}
+.Chart .chartError {
+    margin-top: 5rem;
 }
 .weekly-Chart .barchart-head {
     width: 80%;
