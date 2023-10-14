@@ -279,7 +279,7 @@
                     <i class="fa-solid fa-message"></i>
                     <h3>Chat to support</h3>
                     <span>For more help</span>
-                    <a href="/">admin@Greenify.com</a>
+                    <a href='/'>admin@Greenify.com</a>
                 </div>
                 <div class="blocks location">
                     <i class="fa-solid fa-location-dot"></i>
