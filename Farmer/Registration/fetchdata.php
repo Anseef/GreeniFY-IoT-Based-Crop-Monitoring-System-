@@ -1,5 +1,5 @@
 <?php
-    include "connection.php";
+    include "../../connection.php";
     // Farm ID Validation Data
     $signupQuery = "SELECT farmID FROM FarmDetails";
     $signupResult = mysqli_query($conn,$signupQuery);

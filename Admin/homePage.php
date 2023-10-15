@@ -1,5 +1,6 @@
 <?php 
     include "fetchAdminData.php";
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,9 +46,11 @@
                     <h2>greeniFY</h2>
                 </div>
                 <div class="headButtons">
-                    <div class="logout">
-                        <button type="submit" name="logoutBtn">Logout</button>
-                    </div>
+                    <form action="Login/logout.php" method="post">
+                        <div class="login">
+                            <button type="submit" name="logoutBtn"><?php if($_SESSION['admin'] == ''){echo "Login";}else{echo "Logout";}?></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -56,7 +59,7 @@
                 <div class="header">
                     <div class="heading">
                         <h1>Welcome back</h1>
-                        <span>Andrew!</span>
+                        <span><?php echo $_SESSION['admin'] ?></span>
                     </div>
                     <div class="add-Farm">
                         <i class="fa-solid fa-plus"></i>

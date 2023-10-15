@@ -3,8 +3,8 @@
     include "../../connection.php";
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $loginUser = $_POST['userFieldValue'];
-        $_SESSION['username'] = $loginUser;
-        $_SESSION['user_id'] = mysqli_insert_id($conn);
+        $_SESSION['admin'] = $loginUser;
+        $_SESSION['admin_id'] = mysqli_insert_id($conn);
         $response = [
             'status' => 'success',
             'message' => 'Data received successfully.'

@@ -3,7 +3,7 @@
     include "../../connection.php";
     if(isset($_POST['logoutBtn'])){
         session_destroy();
-        header("Location: index.php");
+        header("Location: adminLogin.php");
         exit();
     }
 ?>
