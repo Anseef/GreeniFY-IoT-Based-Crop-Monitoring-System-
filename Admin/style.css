@@ -64,7 +64,7 @@ body {
 .home-Main, .dashboard {
     margin: 3rem auto;
     width: 80%;
-    min-height: 34rem;
+    height: 38rem;
     background-color: rgba(29, 68, 51, 0.04);
     padding: 0 2rem 2rem;
     border-radius: 20px;
@@ -118,12 +118,15 @@ body {
 }
 .farm-Main {
     display: flex;
-    flex-flow:wrap;
     gap: 15px;
     align-items: center;
-    justify-content: space-around;
+}
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
 }
 .farm-Main .blocks {
+    width: 220px;
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -239,9 +242,10 @@ body {
     justify-content: space-between;
 }
 
-.dashHeader .heading h1{
-    margin: 0;
-}.dashHeader .backBtn a{
+.dashHeader h1{
+    color: rgba(11, 39, 15, 1);
+}
+.dashHeader .backBtn a{
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
@@ -260,8 +264,10 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    font-family: ''Poppins', sans-serif';
 }
 .Chart h2 {
+    margin: 0;
     font-weight: 600;
     color: rgba(11, 39, 15, 1);
 }
@@ -269,6 +275,17 @@ body {
     width: 80%;
     display: flex;
     justify-content:space-between; 
+}
+.barchart-head select {
+    border: 2px solid black;
+    border-radius: 6px;
+    background-color: white;
+    outline: none;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    height: 30px;
+    color: var(--textColor);
 }
 .weekly-Chart {
     width: 555px;

@@ -43,22 +43,24 @@ const inputFields = () => {
 
 const farmIDValidation = (farmID) => {
     let validFarmID = false;
-    signupArray.forEach(ID => {
-        if (ID.farmID === farmID) {
-            validFarmID = true;
+    if(signupArray){
+        signupArray.forEach(ID => {
+            if (ID.farmID === farmID) {
+                validFarmID = true;
+            }
+        });
+        if (!validFarmID) {
+            errorField[0].innerHTML = "Please Enter a valid FarmID";
+            errorField[0].classList.add('error');
+            errorContainer[0].classList.remove('errorCleared');
+            errorContainer[0].classList.add('errorOccured');
+        } else {
+            errorField[0].innerHTML = "";
+            errorContainer[0].classList.remove('errorOccured');
+            errorContainer[0].classList.add('errorCleared');
         }
-    });
-    if (!validFarmID) {
-        errorField[0].innerHTML = "Please Enter a valid FarmID";
-        errorField[0].classList.add('error');
-        errorContainer[0].classList.remove('errorCleared');
-        errorContainer[0].classList.add('errorOccured');
-    } else {
-        errorField[0].innerHTML = "";
-        errorContainer[0].classList.remove('errorOccured');
-        errorContainer[0].classList.add('errorCleared');
+        return validFarmID;
     }
-    return validFarmID;
 }
 
 const phoneNumberValidation = (MobileNumber) => {
@@ -82,34 +84,36 @@ const passwordValidation = (userName,Password) => {
     let inValidPassword = false;
     let validPassword = true;
     const condition = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[#$.%&@!+=*]).{8,12}$/;
-    userDataArray.forEach(user => {
-        if(user.username.toLowerCase() === userName.toLowerCase()){
-            if(user.password === Password){
-                inValidPassword = true;
-                validPassword = false;
-                console.log("both are equal");
+    if(userDataArray){
+        userDataArray.forEach(user => {
+            if(user.username.toLowerCase() === userName.toLowerCase()){
+                if(user.password === Password){
+                    inValidPassword = true;
+                    validPassword = false;
+                    console.log("both are equal");
+                }
             }
-        }
-    });
-    if(!inValidPassword){
-        if(!Password.match(condition)){
+        });
+        if(!inValidPassword){
+            if(!Password.match(condition)){
+                errorField[3].innerHTML = "Password is too weak!";
+                errorField[3].classList.add('error');
+                errorContainer[3].classList.remove('errorCleared');
+                errorContainer[3].classList.add('errorOccured');
+                validPassword = false;
+            }else{
+                errorField[3].innerHTML = "";
+                errorContainer[3].classList.remove('errorOccured');
+                errorContainer[3].classList.add('errorCleared');
+            }
+        }else{
             errorField[3].innerHTML = "Password is too weak!";
             errorField[3].classList.add('error');
             errorContainer[3].classList.remove('errorCleared');
             errorContainer[3].classList.add('errorOccured');
-            validPassword = false;
-        }else{
-            errorField[3].innerHTML = "";
-            errorContainer[3].classList.remove('errorOccured');
-            errorContainer[3].classList.add('errorCleared');
         }
-    }else{
-        errorField[3].innerHTML = "Password is too weak!";
-        errorField[3].classList.add('error');
-        errorContainer[3].classList.remove('errorCleared');
-        errorContainer[3].classList.add('errorOccured');
-    }
-    return validPassword;
+        return validPassword;
+    }   
 }
 
 const removeAllFields = () => {

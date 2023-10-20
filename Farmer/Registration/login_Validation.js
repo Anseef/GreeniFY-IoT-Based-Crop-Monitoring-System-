@@ -30,15 +30,17 @@ const verification = (e) => {
 const userCheck = (userFieldValue,passFieldValue) => {
     let isValidUser = false;
     let isValidPassword = false;
-    userDataArray.forEach(user => {
-        if(user.username.toLowerCase() === userFieldValue.toLowerCase()){
-            isValidUser = true;
-            if(user.password === passFieldValue){
-                isValidPassword = true;
+    if(userDataArray){
+        userDataArray.forEach(user => {
+            if(user.username.toLowerCase() === userFieldValue.toLowerCase()){
+                isValidUser = true;
+                if(user.password === passFieldValue){
+                    isValidPassword = true;
+                }
             }
-        }
-    });
-    return { isValidUser, isValidPassword };
+        });
+        return { isValidUser, isValidPassword };
+    }
 }
 
 const sendDataLogin = (userFieldValue, passFieldValue) => {

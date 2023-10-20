@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="style.css">
     <title>GreeniFY-AdminPanel</title>
 </head>
@@ -68,37 +69,21 @@
                 </div>
                 <div class="farm-MainContainer">
                     <h1>Farm List</h1>
-                    <div class="farm-Main">
-                        <div class="blocks">
-                            <i class="fa-solid fa-tractor"></i>
-                            <h3>Tomato Farm</h3>
-                            <span>Farmer in Charge: Sam</span>
-                            <span>Contact: 9999999999</span>
-                            <a href="/">View more details</a>
-                        </div>
-                        <div class="blocks">
-                            <i class="fa-solid fa-tractor"></i>
-                            <h3>Brinjal Farm</h3>
-                            <span>Farmer in Charge: John</span>
-                            <span>Contact: 9999999999</span>
-                            <a href="/">View more details</a>
-                        </div>
-                        <div class="blocks">
-                            <i class="fa-solid fa-tractor"></i>
-                            <h3>Potato Farm</h3>
-                            <span>Farmer in Charge: Zack</span>
-                            <span>Contact: 9999999999</span>
-                            <a href="/">View more details</a>
-                        </div>
+                    <div class="farm-Main swiper">
+                        <div class="swiper-wrapper"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/4cfe4e4dfd.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="slider.js"></script>
     <script>
         const farmIDArray = <?php echo json_encode($farmIDArray)?>;
     </script>
     <script src="farmCreation.js"></script>
+    <script src="farmDetailBlock.js"></script>
 </body>
 </html>

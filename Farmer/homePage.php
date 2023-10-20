@@ -175,7 +175,7 @@
                     <div class="status-blog">
                         <div class="sensor-details">
                             <h3>Moisture Sensor</h3>
-                            <?php if($error == 1 || !$_SESSION['username']){
+                            <?php if($moistureError || !$_SESSION['username']){
                                 echo "<i class='fa-solid fa-toggle-off'></i>";
                             }else{
                                 echo "<i class='fa-solid fa-toggle-on'></i>";
@@ -184,7 +184,7 @@
                         </div>
                         <div class="sensor-details">
                             <h3>Temperature Sensor</h3>
-                            <?php if($error == 2 || !$_SESSION['username']){
+                            <?php if($temperatureError || !$_SESSION['username']){
                                 echo "<i class='fa-solid fa-toggle-off'></i>";
                             }else{
                                 echo "<i class='fa-solid fa-toggle-on'></i>";
@@ -193,7 +193,7 @@
                         </div>
                         <div class="sensor-details">
                             <h3>Humidity Sensor</h3>
-                            <?php if($error == 3 || !$_SESSION['username']){
+                            <?php if($humidityError || !$_SESSION['username']){
                                 echo "<i class='fa-solid fa-toggle-off'></i>";
                             }else{
                                 echo "<i class='fa-solid fa-toggle-on'></i>";

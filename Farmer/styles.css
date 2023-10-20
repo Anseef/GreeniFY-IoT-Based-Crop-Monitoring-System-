@@ -413,7 +413,7 @@ span {
     display: flex;
     gap: 1rem;
     flex-flow: wrap;
-    justify-content: left;
+    justify-content: center;
 }
 .Chart{
     background-color: #fff;

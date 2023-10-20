@@ -1,3 +1,4 @@
 {
-    "livePreview.defaultPreviewPath": "/homePage.html"
+    "livePreview.defaultPreviewPath": "/homePage.html",
+    "php.version": "8.3"
 }

@@ -7,7 +7,7 @@
         $farmDetailsResult = mysqli_query($conn, $farmDetails);
         if (mysqli_num_rows($farmDetailsResult) > 0) {
             $farmData = mysqli_fetch_assoc($farmDetailsResult);
-            $_SESSION['tableName'] =$farmData['cropName'];
+            $_SESSION['tableName'] = $farmData['cropName'];
             $tableName = $_SESSION['tableName'];
             $fetchSrData = "SELECT mvalue,tvalue,hvalue FROM $tableName WHERE id = (SELECT MAX(id) FROM $tableName)";
             $fetchSrDataResult = mysqli_query($conn, $fetchSrData);
@@ -36,15 +36,14 @@
         }
         //Sensor Status 
         if($moistureValue && $humidityValue && $temperatureValue){
-            $error = 0;
             if($moistureValue < 15 || $moistureValue > 80) {
-                $error = 1;
+                $moistureError = true;
             }
             if($temperatureValue < 20 || $temperatureValue > 45) {
-                $error = 2;
+                $temperatureError = true;
             }
             if($humidityValue < 40  || $humidityValue > 110) {
-                $error = 3;
+                $humidityError = true;
             }
         }
     }
