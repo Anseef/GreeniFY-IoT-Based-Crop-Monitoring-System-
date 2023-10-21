@@ -408,12 +408,13 @@ span {
     padding-top: 1rem;
 }
 .analytics-Main {
+    position: relative;
     padding: 1rem;
     border-radius: 15px;
     display: flex;
     gap: 1rem;
     flex-flow: wrap;
-    justify-content: center;
+    justify-content: left;
 }
 .Chart{
     background-color: #fff;
@@ -478,6 +479,15 @@ span {
     border: none;
     cursor: pointer;
 }
+/*.plant {
+    background-image: url(images/Plant-Aesthetic-Theme-PNG.png);
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+*/
 
 /* Contact */
 .contact .header{

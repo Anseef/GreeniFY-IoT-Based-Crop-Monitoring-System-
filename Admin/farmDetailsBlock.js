@@ -1,4 +1,4 @@
-const parentContainer = document.querySelector('.farm-Main');
+const parentContainer = document.querySelector('.farm-Main .swiper-wrapper');
 const distinctFarmDetails = new Map();
 farmIDArray.forEach(farm => {
   distinctFarmDetails.set(farm.farmID, farm);

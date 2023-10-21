@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="swiper-config.css"/>
+    <link rel="stylesheet" href="styles.css">
     <title>GreeniFY-AdminPanel</title>
 </head>
 <body>
@@ -71,19 +71,20 @@
                     <h1>Farm List</h1>
                     <div class="farm-Main swiper">
                         <div class="swiper-wrapper"></div>
-                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="swiper-config.js"></script>
     <script src="https://kit.fontawesome.com/4cfe4e4dfd.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="slider.js"></script>
+    <script src="Farmslider.js"></script>
     <script>
         const farmIDArray = <?php echo json_encode($farmIDArray)?>;
     </script>
     <script src="farmCreation.js"></script>
-    <script src="farmDetailBlock.js"></script>
+    <script src="farmDetailsBlock.js"></script>
 </body>
 </html>

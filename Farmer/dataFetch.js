@@ -16,7 +16,6 @@ const fetchDate = async (e) => {
                         const parts = dateObj.dates.split(' ');
                         const time = parts[1];
                         timeOnly.push(time);
-                        console.log("Date is valid");
                     }
                 });
                 TimeSplit(timeOnly);
@@ -33,7 +32,6 @@ const fetchDate = async (e) => {
 const TimeSplit = (timeOnly) => {
 
     if (timeOnly) {
-        console.log(timeOnly);
         const morningData = [];
         const noonData = [];
         const afternoonData = [];

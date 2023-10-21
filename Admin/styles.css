@@ -111,22 +111,31 @@ body {
     transform: scale(1.03);
 }
 .farm-MainContainer {
-    margin-top: 5rem;
+    margin-top: 7rem;
 }
 .farm-MainContainer h1 {
     text-align: center;
 }
 .farm-Main {
+    width: 100%;
     display: flex;
     gap: 15px;
     align-items: center;
 }
 .swiper {
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next{
+    color: rgb(24, 51, 6);
+    font-size: 5px;
+    cursor: pointer;
 }
 .farm-Main .blocks {
-    width: 220px;
+    position: relative;
+    width: 200px;
     display: flex;
     flex-direction: column;
     padding: 2rem;
