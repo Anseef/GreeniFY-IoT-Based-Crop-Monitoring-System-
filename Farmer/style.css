@@ -403,18 +403,22 @@ span {
 }
 
 /* Analytics */
+.analytics {
+    position: relative;
+}
 .analytics .header h1 {
     margin: 0;
     padding-top: 1rem;
 }
 .analytics-Main {
-    position: relative;
     padding: 1rem;
     border-radius: 15px;
     display: flex;
+}
+.chart-Container {
+    display: flex;
     gap: 1rem;
     flex-flow: wrap;
-    justify-content: left;
 }
 .Chart{
     background-color: #fff;
@@ -453,11 +457,11 @@ span {
     background-color: rgb(251, 252, 250);
 }
 .pie-Chart {
-    width: 35%;
+    width: 445px;
     height: 270px;
 }
 .line-Chart {
-    width: 40%;
+    width: 500px;
     height: 230px;
     background-color: rgb(249, 250, 248);
 }
@@ -468,7 +472,7 @@ span {
     width: 80%;
 }
 .dot-Chart {
-    width: 40%;
+    width: 500px;
     height: 230px;
 }
 .dot-Chart button{
@@ -479,16 +483,24 @@ span {
     border: none;
     cursor: pointer;
 }
-/*.plant {
-    background-image: url(images/Plant-Aesthetic-Theme-PNG.png);
+.plant {
+    background-image: url(images/lavender.png);
     position: absolute;
-    width: 100px;
-    height: 100px;
-    background-size: cover;
+    width: 280px;
+    height: 280px;
+    background-size: contain;
     background-repeat: no-repeat;
+    right: 0;
+    bottom: 0;
 }
-*/
 
+.motto {
+    width: 365px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 1rem;
+}
 /* Contact */
 .contact .header{
     display: flex;

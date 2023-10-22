@@ -19,6 +19,7 @@
 ?>
 <script>
     var dailyData = <?php echo json_encode($entireArrayWeekly) ?>;
+    var field = document.querySelector('.dailyChart .errorField');
     var ctx = document.getElementById('dotChart').getContext('2d');
     if(dailyData){
         var data = {
@@ -27,34 +28,34 @@
                 {
                     label: 'Moisture',
                     data: dailyData.map(entry => entry.mvalue),
-                    backgroundColor: '#17b3c1',
+                    backgroundColor: 'rgba(164, 209, 157, 1)',
                     borderColor: 'rgba(164, 209, 157, 1)',
                     borderWidth: 0, //line width
                     borderRadius:5, //bar radius
                     tension:0.4,
-                    pointBorderRadius: 4,
+                    pointRadius: 5,
                     pointBorderColor:'transparent'
                 },
                 {
                     label: 'Temperature',
                     data: dailyData.map(entry => entry.tvalue),
-                    backgroundColor: '#07456f',
+                    backgroundColor: 'rgba(92, 114, 92, 1)',
                     borderColor: 'rgba(92, 114, 92, 1)',
                     borderWidth: 0,
                     borderRadius:5,
                     tension:0.4,
-                    pointBorderRadius: 4,
+                    pointRadius: 5,
                     pointBorderColor:'transparent'
                 },
                 {
                     label: 'Humidity',
                     data: dailyData.map(entry => entry.hvalue),
-                    backgroundColor: '#0d8549',
+                    backgroundColor: 'rgba(153, 177, 153, 1)',
                     borderColor: 'rgba(153, 177, 153, 1)',
                     borderWidth: 0,
                     borderRadius:5,
                     tension:0.4,
-                    pointBorderRadius: 4,
+                    pointRadius: 5,
                     pointBorderColor:'transparent'
                 }
             ]
@@ -125,5 +126,8 @@
                 }
             }
         });
+    }else {
+        field.innerHTML = "No Data Yet!";
+        field.style = "display: block; margin: 0 auto;text-align:center;margin-top:5rem";
     }
 </script>

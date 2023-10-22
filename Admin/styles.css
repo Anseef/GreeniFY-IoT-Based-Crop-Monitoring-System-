@@ -274,6 +274,13 @@ body {
     align-items: center;
     flex-direction: column;
     font-family: ''Poppins', sans-serif';
+    color: rgba(11, 39, 15, 1);
+}
+.Chart span {
+    font-weight: 600;
+}
+.Chart .chartError {
+    margin-top: 5rem;
 }
 .Chart h2 {
     margin: 0;

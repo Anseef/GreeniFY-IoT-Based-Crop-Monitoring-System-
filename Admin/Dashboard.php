@@ -1,4 +1,5 @@
 <?php
+    session_name("adminSession");
     session_start();
     $url = $_SERVER['REQUEST_URI'];
     $parts = explode('/', $url);
@@ -43,15 +44,29 @@
                             <option value="1">Monthly</option>
                         </select>
                     </div>
-                    <div class="barChart">
-                        <canvas id="barChart"><canvas>
-                    </div>
+                    <?php 
+                        if(!$_SESSION['admin']){
+                            echo "<span class='chartError'>No Results Found</span>";
+                        }else{
+                            echo "<div class='barChart'>
+                                <span class='errorField'></span>
+                                <canvas id='barChart'><canvas>
+                                </div>";
+                        }
+                    ?>
                 </div>
                 <div class="Chart pie-Chart">
                     <h2>Plant Growth</h2>
-                    <div class="plantAge">
-                        <canvas id="plantAge"></canvas>
-                    </div>
+                    <?php 
+                        if(!$_SESSION['admin']){
+                            echo "<span class='chartError'>No Results Found</span>";
+                        }else{
+                            echo "<div class='plantAge'>
+                            <span class='errorField'></span>
+                            <canvas id='plantAge'></canvas>
+                            </div>";
+                        }
+                    ?>
                 </div>
                 <div class="info-Container">
                     <div class="farmer-Info">

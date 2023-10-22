@@ -15,6 +15,7 @@
 ?>
 <script>
     var pumpStat = <?php echo json_encode($entirePumpStat) ?>;
+    var field = document.querySelector('.pumpReading .errorField');
     var ctx = document.getElementById('pumpReading').getContext('2d');
     if(pumpStat){
         var data = {
@@ -82,6 +83,9 @@
             }
         }
     });
+    }else {
+        field.innerHTML = "No Data Yet!";
+        field.style = "display: block; margin: 0 auto;text-align:center;margin-top:5rem";
     }
 
 </script>

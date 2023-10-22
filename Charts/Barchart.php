@@ -36,6 +36,7 @@
 <script>
     var currentData = <?php echo json_encode($entireArray) ?>;
     var fourWeekData = <?php echo json_encode($fourWeekAvgArray) ?>;
+    var field = document.querySelector('.barChart .errorField');
     var ctx = document.getElementById('barChart').getContext('2d');
     if(currentData){
         var data = {
@@ -151,9 +152,8 @@
                 }
             }
         }); 
-    }
-    function filterChart(filter){
-    if(filter.value == 1){
+        function filterChart(filter){
+        if(filter.value == 1){
         var currentDate = new Date();
         var currentMonthName = currentDate.toLocaleString('default', { month: 'long' })
         barChart.data.labels = ['Week 1', 'Week 2', 'Week 3', 'Week 4'];
@@ -170,5 +170,9 @@
         barChart.options.plugins.title.text = "Weekly";
         }
         barChart.update();  
+    }
+    }else {
+        field.innerHTML = "No Data Yet!";
+        field.style = "display: block; margin: 0 auto;text-align:center;margin-top:5rem";
     }
 </script>

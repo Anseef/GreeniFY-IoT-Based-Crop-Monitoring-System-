@@ -1,5 +1,6 @@
 <?php 
     include "fetchAdminData.php";
+    session_name("adminSession");
     session_start();
 ?>
 <!DOCTYPE html>

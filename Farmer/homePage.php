@@ -1,4 +1,5 @@
 <?php include "../connection.php";
+    session_name("userSession");
     session_start();
 ?>
 <!DOCTYPE html>
@@ -213,58 +214,74 @@
                 <h1>Analytics</h1>
             </div>
             <div class="analytics-Main">
-                <div class="Chart weekly-Chart">
-                    <div class="barchart-head">
-                        <h2>Sensor Reading</h2>
-                        <select name="week-switch" onchange="filterChart(this)">
-                            <option value="2">Weekly</option>
-                            <option value="1">Monthly</option>
-                        </select>
+                <div class="chart-Container">
+                    <div class="Chart weekly-Chart">
+                        <div class="barchart-head">
+                            <h2>Sensor Reading</h2>
+                            <select name="week-switch" onchange="filterChart(this)">
+                                <option value="2">Weekly</option>
+                                <option value="1">Monthly</option>
+                            </select>
+                        </div>
+                        <?php 
+                            if(!$_SESSION['username']){
+                                echo "<span class='chartError'>No Results Found</span>";
+                            }else {
+                                echo "
+                                    <div class='barChart'>
+                                        <span class='errorField'></span>
+                                        <canvas id='barChart'><canvas>
+                                    </div>";
+                            }
+                        ?>
                     </div>
-                    <?php 
-                        if(!$_SESSION['username']){
-                            echo "<span class='chartError'>No Results Found</span>";
-                        }
-                    ?>
-                    <div class='barChart'>
-                        <canvas id='barChart'><canvas>
+                    <div class="Chart pie-Chart">
+                        <h2>Plant Growth</h2>
+                        <?php 
+                            if(!$_SESSION['username']){
+                                echo "<span class='chartError'>No Results Found</span>";
+                            }else {
+                                echo "
+                                    <div class='plantAge'>
+                                        <span class='errorField'></span>
+                                        <canvas id='plantAge'></canvas>
+                                    </div>";
+                            }
+                        ?>
+                    </div>
+                    <div class="Chart line-Chart">
+                        <h2>Pump Status</h2>
+                        <?php 
+                            if(!$_SESSION['username']){
+                                echo "<span class='chartError'>No Results Found</span>";
+                            }else{
+                                echo "
+                                    <div class='pumpReading'>
+                                       <span class='errorField'></span>
+                                       <canvas id='pumpReading'></canvas>
+                                    </div>";
+                            }
+                        ?>
+                    </div>
+                    <div class="Chart dot-Chart">
+                        <div class="dotchart-head">
+                            <h2>Daily Reading</h2>
+                        </div>
+                        <?php 
+                            if(!$_SESSION['username']){
+                                echo "<span class='chartError'>No Results Found</span>";
+                            }else {
+                                echo "
+                                    <div class='dailyChart'>
+                                        <span class='errorField'></span>
+                                        <canvas id='dotChart'></canvas>
+                                    </div>";
+                            }
+                        ?>
                     </div>
                 </div>
-                <div class="Chart pie-Chart">
-                    <h2>Plant Growth</h2>
-                    <?php 
-                        if(!$_SESSION['username']){
-                            echo "<span class='chartError'>No Results Found</span>";
-                        }
-                    ?>
-                    <div class='plantAge'>
-                        <canvas id='plantAge'></canvas>
-                    </div>
-                </div>
-                <div class="Chart line-Chart">
-                    <h2>Pump Status</h2>
-                    <?php 
-                        if(!$_SESSION['username']){
-                            echo "<span class='chartError'>No Results Found</span>";
-                        }
-                    ?>
-                    <div class='pumpReading'>
-                        <canvas id='pumpReading'></canvas>
-                    </div>
-                </div>
-                <div class="Chart dot-Chart">
-                    <div class="dotchart-head">
-                        <h2>Daily Reading</h2>
-                    </div>
-                    <?php 
-                        if(!$_SESSION['username']){
-                            echo "<span class='chartError'>No Results Found</span>";
-                        }
-                    ?>
-                    <div class='dailyChart'>
-                        <canvas id='dotChart'></canvas>
-                    </div>
-                </div>
+                <h4 class="motto">Growing community by inspiring healthy, whole, abundant living.
+                </h4>
                 <div class="plant"></div>
             </div>
         </div>

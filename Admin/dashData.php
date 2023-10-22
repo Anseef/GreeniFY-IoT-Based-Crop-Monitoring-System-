@@ -1,4 +1,5 @@
 <?php 
+    session_name("adminSession");
     session_start();
     include "../connection.php";
     if (isset($_SESSION['farmID'])) {

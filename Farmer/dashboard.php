@@ -1,4 +1,5 @@
 <?php include "../connection.php";
+    session_name("userSession");
     session_start();
     if(isset($_SESSION['username'])){
         $sessionUser = $_SESSION['username']; 

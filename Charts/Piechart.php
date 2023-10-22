@@ -14,6 +14,7 @@
     var plantAgeDays = parseInt(<?php echo json_encode($plantAgeDays) ?>)
     var remainingDays = 60 - plantAgeDays
     var plantAge = [plantAgeDays, remainingDays];
+    var field = document.querySelector('.plantAge .errorField');
     var ctx = document.getElementById('plantAge').getContext('2d');
     if(plantAgeDays){
         var data = {
@@ -63,5 +64,8 @@
                 }
             }
         });
+    }else {
+        field.innerHTML = "No Data Yet!";
+        field.style = "display: block; margin: 0 auto;text-align:center;margin-top:5rem";
     }
 </script>
