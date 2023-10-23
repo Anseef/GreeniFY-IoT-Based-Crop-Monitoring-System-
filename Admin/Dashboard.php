@@ -1,6 +1,7 @@
 <?php
     session_name("adminSession");
     session_start();
+    error_reporting(0);
     $url = $_SERVER['REQUEST_URI'];
     $parts = explode('/', $url);
     $farmID = $parts[4];
@@ -68,6 +69,7 @@
                         }
                     ?>
                 </div>
+                <div class="image"></div>
                 <div class="info-Container">
                     <div class="farmer-Info">
                         <h2>Farmer info</h2>

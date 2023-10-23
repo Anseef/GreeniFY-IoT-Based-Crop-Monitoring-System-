@@ -6,6 +6,13 @@ body {
     font-family: 'Poppins', sans-serif;
     user-select: none;
 }
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(142, 192, 108, 0.44);
+    border-radius: 8px; 
+}
 .home-Container {
     min-height: 100vh;
     color: rgba(11, 39, 15, 1);
@@ -244,7 +251,9 @@ body {
     cursor: pointer;
 }
 /* Dashboard */
-
+.dashboard {
+    position: relative;
+}
 .dashHeader {
     display: flex;
     align-items: center;
@@ -313,6 +322,18 @@ body {
     height: 270px;
     background-color: rgb(245, 252, 243);
 }
+.image {
+    display: block; /* or use display: none; to hide the element initially */
+    background-image: url(../Farmer/images/Butterfly.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 260px;
+    height: 240px;
+    top: 100px;
+    right: 0;
+}
+
 .info-Container {
     width: 100%;
     display: flex;
@@ -327,6 +348,8 @@ body {
 }
 .farmer-Info .farmer-list {
     color: rgba(11, 39, 15, 1);
+    height: 135px;
+    overflow-y: scroll;
 }
 .farmer-Info table {
     border-collapse: separate;
