@@ -28,6 +28,29 @@
                 }
             }
         }
+        if (isset($_POST['removeBtn'])) {
+            $farmID = $_POST['farmIDRemove'];
+            $farmName = $_POST['farmNameRemove'];
+            $checkQuery = "SELECT farmID, farmName,cropName FROM FarmDetails WHERE farmID = '$farmID'";
+            $checkResult = mysqli_query($conn, $checkQuery);
+        
+            if ($rowRemove = mysqli_fetch_assoc($checkResult)) {
+                $storedFarmName = $rowRemove['farmName'];
+                if ($storedFarmName === $farmName) {
+                    $removeQuery = "DELETE FROM FarmDetails WHERE farmID = '$farmID'";
+                    $removeResult = mysqli_query($conn, $removeQuery);
+                
+                    if ($removeResult) {
+                        $tableName = $rowRemove['cropName'];
+                        $removeTable = "DROP TABLE $tableName";
+                        $removeTableResult = mysqli_query($conn, $removeTable);
+                        if($removeTableResult){
+                            header('location:homePage.php');
+                        }                     
+                    }
+                }
+            }
+        }
     }else {
         header('location:homePage.php');
     }
