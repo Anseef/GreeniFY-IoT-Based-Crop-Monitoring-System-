@@ -40,6 +40,61 @@
                 <button type="submit" name="createBtn">Create</button>
             </form>
         </div>
+        <?php
+            if(!isset($_SESSION["admin"])){
+                echo "<span class='error'>Login to remove!</span>";
+            } 
+        ?>
+    </div>
+    <div class="removeFarmContainer">
+        <div class="header">
+                <i class="fa-solid fa-xmark"></i>
+                <h1>Remove Farm</h1>
+        </div>
+        <div class="removeFarm-Main">
+            <form action="" method="post">
+                <div class="input-block">
+                    <label for="farmID">Farm ID</label>
+                    <input type="text" name="farmIDRemove" id="farmIDRemove">
+                    <span class="errorField"></span>
+                </div>
+                <div class="input-block">
+                    <label for="farmName">Farm Name</label>
+                    <input type="text" name="farmNameRemove">
+                    <span class="errorField"></span>
+                </div>
+                <button type="submit" name="removeBtn">Remove</button>
+            </form>
+        </div>
+        <?php
+            if (isset($_SESSION['admin'])) {
+                if (isset($_POST['removeBtn'])) {
+                    $farmID = $_POST['farmIDRemove'];
+                    $farmName = $_POST['farmNameRemove'];
+                    $checkQuery = "SELECT farmID, farmName FROM FarmDetails WHERE farmID = '$farmID'";
+                    $checkResult = mysqli_query($conn, $checkQuery);
+                
+                    if ($rowRemove = mysqli_fetch_assoc($checkResult)) {
+                        $storedFarmName = $rowRemove['farmName'];
+                        if ($storedFarmName === $farmName) {
+                        
+                            $removeQuery = "DELETE FROM FarmDetails WHERE farmID = '$farmID'";
+                            $removeResult = mysqli_query($conn, $removeQuery);
+                        
+                            if ($removeResult) {
+                                echo "<span class='success'>Farm is Deleted</span>";
+                            }
+                        }else {
+                            echo "<span class='error'>Invalid Farm Name</span>";
+                        }
+                    }else {
+                        echo "<span class='error'>Enter a valid FarmID</span>";
+                    }
+                }
+            }else {
+                echo "<span class='error'>Login to remove!</span>";
+            }
+        ?>
     </div>
     <div class="home-Container">
         <div class="navbarContainer">
@@ -64,9 +119,14 @@
                         <h1>Welcome back</h1>
                         <span><?php echo $_SESSION['admin'] ?></span>
                     </div>
-                    <div class="add-Farm">
-                        <i class="fa-solid fa-plus"></i>
-                        <button type="submit" name="addFarmBtn" id="addFarmBtn">Add Farm</button>
+                    <div class="farm-Option">
+                        <div class="add-Farm">
+                            <i class="fa-solid fa-plus"></i>
+                            <button type="submit" name="addFarmBtn" id="addFarmBtn">Add Farm</button>
+                        </div>
+                        <div class="remove-Farm">
+                            <button type="submit" name="removeFarmBtn" id="removeFarmBtn"><i class="fa-solid fa-trash"></i></button>
+                        </div>
                     </div>
                 </div>
                 <div class="farm-MainContainer">

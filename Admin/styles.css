@@ -91,7 +91,21 @@ body {
     font-weight: 600;
     font-size: 34px;
 }
-.home-Main .add-Farm{
+.farm-Option {
+    display: flex;
+    align-items: center;
+    gap:20px;
+}
+.farm-Option button {
+    background-color: transparent;
+    border: 0;
+}
+.farm-Option .remove-Farm {
+    cursor: pointer;
+    font-size: large;
+    transition: transform 0.2s;
+}
+.farm-Option .add-Farm{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,10 +189,9 @@ body {
     text-align: center;
 }
 
-.createFarmContainer {
+.createFarmContainer,
+.removeFarmContainer {
     z-index: 1;
-    width: 270px;
-    height: 400px;
     background-color: rgba(161, 216, 154, 1);
     position: absolute;
     top:50%;
@@ -189,7 +202,12 @@ body {
     visibility: hidden;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.30);
 }
-.createFarmContainer i {
+.createFarmContainer {
+    width: 270px;
+    height: 400px;
+}
+.createFarmContainer i,
+.removeFarmContainer i {
     position: absolute;
     top: 20px;
     right:20px;
@@ -201,24 +219,28 @@ body {
 .shown {
     visibility: visible;
 }
-.createFarmContainer .header h1 {
+.createFarmContainer .header h1,
+.removeFarmContainer .header h1{
     padding: 0;
     width: 100%;
     font-size: 30px;
     text-align: center;
     margin: .5rem;
 }
-.createFarmContainer .input-block {
+.createFarmContainer .input-block,
+.removeFarmContainer .input-block {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
-.createFarm-Main label {
+.createFarm-Main label,
+.removeFarm-Main label {
     margin-top: 1rem;
     font-weight: 600;
 }
-.createFarm-Main input {
+.createFarm-Main input,
+.removeFarm-Main input {
     padding: .6rem;
     outline: none;
     border: none;
@@ -227,17 +249,23 @@ body {
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
 }
-.createFarm-Main span {
+.createFarmContainer span,
+.removeFarmContainer span {
     height: 6px;
     transition: all 0.2s;
     font-size: 12px;
     font-weight: 500;
 }
-.createFarm-Main .error {
+.createFarmContainer .error,
+.removeFarmContainer .error {
     padding-left: .5rem;
     color:rgb(247, 14, 60);
 }
-.createFarm-Main button {
+.removeFarmContainer .success {
+    color: green;
+}
+.createFarm-Main button,
+.removeFarm-Main button {
     width: 100%;
     margin-top: 1.4rem;
     border-radius: 6px;
@@ -250,7 +278,9 @@ body {
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
 }
-/* Dashboard */
+
+
+/*            Dashboard               */
 .dashboard {
     position: relative;
 }
