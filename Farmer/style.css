@@ -496,11 +496,11 @@ span {
 }
 
 .motto {
-    width: 365px;
+    width: 355px;
     text-align: center;
-    font-size: 22px;
-    font-weight: 600;
     padding: 1rem;
+    height: 240px;
+    font-size: 12px;
 }
 /* Contact */
 .contact .header{

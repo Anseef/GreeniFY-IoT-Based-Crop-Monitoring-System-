@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Charts/charts.css">
     <title>GreeniFY</title>
 </head>
@@ -165,73 +165,12 @@
             </div>
             <div class="analytics-Main">
                 <div class="chart-Container">
-                    <div class="Chart weekly-Chart">
-                        <div class="barchart-head">
-                            <h2>Sensor Reading</h2>
-                            <select name="week-switch" onchange="filterChart(this)">
-                                <option value="2">Weekly</option>
-                                <option value="1">Monthly</option>
-                            </select>
-                        </div>
-                        <?php 
-                            if(!$_SESSION['username']){
-                                echo "<span class='chartError'>No Results Found</span>";
-                            }else {
-                                echo "
-                                    <div class='barChart'>
-                                        <span class='errorField'></span>
-                                        <canvas id='barChart'><canvas>
-                                    </div>";
-                            }
-                        ?>
-                    </div>
-                    <div class="Chart pie-Chart">
-                        <h2>Plant Growth</h2>
-                        <?php 
-                            if(!$_SESSION['username']){
-                                echo "<span class='chartError'>No Results Found</span>";
-                            }else {
-                                echo "
-                                    <div class='plantAge'>
-                                        <span class='errorField'></span>
-                                        <canvas id='plantAge'></canvas>
-                                    </div>";
-                            }
-                        ?>
-                    </div>
-                    <div class="Chart line-Chart">
-                        <h2>Pump Status</h2>
-                        <?php 
-                            if(!$_SESSION['username']){
-                                echo "<span class='chartError'>No Results Found</span>";
-                            }else{
-                                echo "
-                                    <div class='pumpReading'>
-                                       <span class='errorField'></span>
-                                       <canvas id='pumpReading'></canvas>
-                                    </div>";
-                            }
-                        ?>
-                    </div>
-                    <div class="Chart dot-Chart">
-                        <div class="dotchart-head">
-                            <h2>Daily Reading</h2>
-                        </div>
-                        <?php 
-                            if(!$_SESSION['username']){
-                                echo "<span class='chartError'>No Results Found</span>";
-                            }else {
-                                echo "
-                                    <div class='dailyChart'>
-                                        <span class='errorField'></span>
-                                        <canvas id='dotChart'></canvas>
-                                    </div>";
-                            }
-                        ?>
-                    </div>
+                    <?php include "chartContainer.php"; ?>
                 </div>
-                <h4 class="motto">Growing community by inspiring healthy, whole, abundant living.
-                </h4>
+                <div class="motto">
+                    <h1>Life on a farm is a school of patience; you can't hurry the crops in two days.
+                    </h1>
+                </div>
                 <div class="plant"></div>
             </div>
         </div>
@@ -265,8 +204,7 @@
         </div>
     </div>
     <script src="https://kit.fontawesome.com/4cfe4e4dfd.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
     <script src="navButton.js"></script>

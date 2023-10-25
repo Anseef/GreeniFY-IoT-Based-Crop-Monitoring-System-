@@ -69,7 +69,9 @@
                         }
                     ?>
                 </div>
-                <div class="image"></div>
+                <div class="motto">
+                    <h3>If you tickle the earth with a hoe she laughs with a harvest!</h3>
+                </div>
                 <div class="info-Container">
                     <div class="farmer-Info">
                         <h2>Farmer info</h2>
@@ -81,7 +83,7 @@
                     </div>
                     <?php include "sensorInfo.php"; ?>
                 </div>
-        
+            <div class="image"></div>
             </div>
         </div>
     </div>

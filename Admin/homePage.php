@@ -119,7 +119,7 @@
     </div>
     <script src="swiper-config.js"></script>
     <script src="https://kit.fontawesome.com/4cfe4e4dfd.js" crossorigin="anonymous"></script>
-    <script src="Farmslider.js"></script>
+    <script src="Farmsliders.js"></script>
     <script>
         const farmIDArray = <?php echo json_encode($farmIDArray)?>;
     </script>
