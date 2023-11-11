@@ -122,37 +122,9 @@
                 </div>
 
                 <div class="sensor-Status">
-                    <h1>Sensor Status</h1>
-                    <div class="status-blog">
-                        <div class="sensor-details">
-                            <h3>Moisture Sensor</h3>
-                            <?php if($moistureError || !$_SESSION['username']){
-                                echo "<i class='fa-solid fa-toggle-off'></i>";
-                            }else{
-                                echo "<i class='fa-solid fa-toggle-on'></i>";
-                            }
-                            ?>
-                        </div>
-                        <div class="sensor-details">
-                            <h3>Temperature Sensor</h3>
-                            <?php if($temperatureError || !$_SESSION['username']){
-                                echo "<i class='fa-solid fa-toggle-off'></i>";
-                            }else{
-                                echo "<i class='fa-solid fa-toggle-on'></i>";
-                            }
-                            ?>
-                        </div>
-                        <div class="sensor-details">
-                            <h3>Humidity Sensor</h3>
-                            <?php if($humidityError || !$_SESSION['username']){
-                                echo "<i class='fa-solid fa-toggle-off'></i>";
-                            }else{
-                                echo "<i class='fa-solid fa-toggle-on'></i>";
-                            }
-                            ?>
-                        </div>
-                    </div>
+                    <?php include "sensorStatus.php" ?>
                 </div>
+
             </div>
 
         </div>
@@ -182,23 +154,30 @@
                 <span>Feel free to reach out if you need anything.I'm here for you.</span>
             </div>
             <div class="contact-Main">
+                <?php
+                    $adminDetails = "SELECT * FROM `AdminDetails`";
+                    $adminDetailsResult = mysqli_query($conn,$adminDetails);
+                    if(mysqli_num_rows($adminDetailsResult) > 0){
+                        $admin = mysqli_fetch_assoc($adminDetailsResult);
+                    }
+                ?>
                 <div class="blocks support">
                     <i class="fa-solid fa-message"></i>
                     <h3>Chat to support</h3>
                     <span>For more help</span>
-                    <a href='/'>admin@Greenify.com</a>
+                    <a href="mailto:<?php echo $admin['email'] ?>" ><?php echo $admin['email'] ?></a>
                 </div>
                 <div class="blocks location">
                     <i class="fa-solid fa-location-dot"></i>
                     <h3>Location</h3>
                     <span>To visit the office</span>
-                    <a href="/">View on Google Maps</a>
+                    <a href="http://maps.google.com/">View on Google Maps</a>
                 </div>
                 <div class="blocks phone">
                     <i class="fa-solid fa-phone"></i>
                     <h3>Call</h3>
                     <span>Mon-Fri from 9AM to 5AM</span>
-                    <p>+91 9999999999</p>
+                    <p><?php echo $admin['phone_number'] ?></p>
                 </div>
             </div>
         </div>
@@ -209,7 +188,7 @@
     <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
     <script src="navButton.js"></script>
     <script src="dataFetch.js"></script>
-    <script src="autoUpdateDiv.js"></script>
+    <script src="autoUpdatingDiv.js"></script>
     <?php include_once "../Charts/Barchart.php" ?>
     <?php include_once "../Charts/Piechart.php" ?>
     <?php include_once "../Charts/Linechart.php" ?>

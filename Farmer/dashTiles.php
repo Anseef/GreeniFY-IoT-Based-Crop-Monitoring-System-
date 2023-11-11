@@ -2,6 +2,7 @@
     session_name("userSession");
     session_start();
     include "dashboard.php";
+    error_reporting(0);
 ?>
 
 <div class="tile moisture">
