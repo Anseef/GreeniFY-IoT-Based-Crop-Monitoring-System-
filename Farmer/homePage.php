@@ -187,7 +187,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
     <script src="navButton.js"></script>
+<<<<<<< HEAD
     <script src="dateFetch.js"></script>
+=======
+    <script src="dataFetch.js"></script>
+>>>>>>> 7f15b4c0ce32e510d4c1f6abf952bec6071b8fe5
     <script src="autoUpdatingDiv.js"></script>
     <?php include_once "../Charts/Barchart.php" ?>
     <?php include_once "../Charts/Piechart.php" ?>

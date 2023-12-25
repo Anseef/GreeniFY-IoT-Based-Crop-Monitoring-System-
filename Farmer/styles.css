@@ -363,9 +363,10 @@ span {
 }
 
 .details-block .day-image {
-    background-size: cover;
     width: 30px;
     height: 30px;
+    background-size: cover;
+    background-position: center center;
 }
 
 .details-block h2 {
@@ -395,10 +396,10 @@ span {
     padding: 0;
     margin: 0;
 }
-.details-block .watering-time::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 7px;
 }
-.details-block .watering-time::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: rgba(142, 192, 108, 0.44);
     border-radius: 8px; 
 }

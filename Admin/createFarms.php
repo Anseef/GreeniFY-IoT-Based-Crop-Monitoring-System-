@@ -14,11 +14,20 @@
                 // Table Creation based on CropName;
                 $createTable = "CREATE TABLE `$cropName` (
                     id INT AUTO_INCREMENT PRIMARY KEY,
+<<<<<<< HEAD
+=======
+                    farmID VARCHAR(20),
+>>>>>>> 7f15b4c0ce32e510d4c1f6abf952bec6071b8fe5
                     dates TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     status INT(11),
                     mvalue INT(11),
                     tvalue INT(11),
+<<<<<<< HEAD
                     hvalue INT(11)
+=======
+                    hvalue INT(11),
+                    FOREIGN KEY (farmID) REFERENCES FarmDetails(farmID)
+>>>>>>> 7f15b4c0ce32e510d4c1f6abf952bec6071b8fe5
                 )";
                 $createTableResult = mysqli_query($conn, $createTable);
                 if ($createTableResult) {

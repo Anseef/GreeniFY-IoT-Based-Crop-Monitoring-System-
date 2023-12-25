@@ -1,8 +1,13 @@
 <?php include "../connection.php";
     session_name("userSession");
     session_start();
+<<<<<<< HEAD
     error_reporting(0);
     include "dashboard.php";
+=======
+    include "dashboard.php";
+    error_reporting(0);
+>>>>>>> 7f15b4c0ce32e510d4c1f6abf952bec6071b8fe5
 ?>
 <h1>Sensor Status</h1>
 <div class="status-blog">

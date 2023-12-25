@@ -124,7 +124,11 @@
         const farmIDArray = <?php echo json_encode($farmIDArray)?>;
     </script>
     <script src="farmCreationPopUp.js"></script>
+<<<<<<< HEAD
     <script src="farmDetailsBlocks.js"></script>
+=======
+    <script src="farmDetailsBlock.js"></script>
+>>>>>>> 7f15b4c0ce32e510d4c1f6abf952bec6071b8fe5
     <script src="farmDeletionValidation.js"></script>
 </body>
 </html>
