@@ -1,6 +1,7 @@
 <?php 
     session_name("adminSession");
     session_start();
+    error_reporting(0);
     include "../connection.php";
     if (isset($_SESSION['farmID'])) {
         $currentFarmID =$_SESSION['farmID'];

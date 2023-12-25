@@ -1,6 +1,7 @@
 <?php include "../connection.php";
     session_name("userSession");
     session_start();
+    error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +9,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../Charts/charts.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../Charts/chart.css">
     <title>GreeniFY</title>
 </head>
 <body>
@@ -32,7 +33,7 @@
                 <div class="headButtons">
                     <div class="signUp">
                         <?php 
-                            if($_SESSION['username'] != '')
+                            if($_SESSION['username'])
                             {
                                 echo "<span><i class='fa-solid fa-user'></i>".$_SESSION['username']."</span>";
                             }
@@ -74,60 +75,9 @@
                 <h1><?php echo $farmData['farmName'] ?></h1>
                 <span><?php echo date('d-m-Y') ?></span>
             </div>
-            <?php print_r($Dates); ?>
+
             <div class="dashTiles">
-                <div class="tile moisture">
-                    <div class="sensor-img" style="background-image: url(images/Sensors/moisture.png);"></div>
-                    <div class="sensor-value">
-                        <h2>Moisture</h2>
-                        <span>
-                            <?php if(isset($_SESSION['username'])){
-                                echo $moistureValue."%";
-                            }else{
-                                echo "0";
-                            }?>
-                        </span>
-                    </div>
-                </div>
-                <div class="tile temperature">
-                    <div class="sensor-img" style="background-image: url(images/Sensors/temperature.png);"></div>
-                    <div class="sensor-value">
-                        <h2>Temperature</h2>
-                        <span>
-                            <?php if(isset($_SESSION['username'])){
-                                echo $temperatureValue."%";
-                            }else{
-                                echo "0";
-                            }?>
-                        </span>
-                    </div>
-                </div>
-                <div class="tile humidity">
-                    <div class="sensor-img" style="background-image: url(images/Sensors/humidity.png);"></div>
-                    <div class="sensor-value">
-                        <h2>Humidity</h2>
-                        <span>
-                            <?php if(isset($_SESSION['username'])){
-                                echo $humidityValue."%";
-                            }else{
-                                echo "0";
-                            }?>
-                        </span>
-                    </div>
-                </div>
-                <div class="tile sensors">
-                    <div class="sensor-img" style="background-image: url(images/Sensors/soil-moisture.png);"></div>
-                    <div class="sensor-value">
-                        <h2>Sensors</h2>
-                        <span>
-                            <?php if(isset($_SESSION['username'])){
-                                echo "3";
-                            }else{
-                                echo "0";
-                            }?>
-                        </span>
-                    </div>
-                </div>
+                <?php include "dashTiles.php"; ?>
             </div>
 
             <div class="dash-Main">
@@ -172,37 +122,9 @@
                 </div>
 
                 <div class="sensor-Status">
-                    <h1>Sensor Status</h1>
-                    <div class="status-blog">
-                        <div class="sensor-details">
-                            <h3>Moisture Sensor</h3>
-                            <?php if($moistureError || !$_SESSION['username']){
-                                echo "<i class='fa-solid fa-toggle-off'></i>";
-                            }else{
-                                echo "<i class='fa-solid fa-toggle-on'></i>";
-                            }
-                            ?>
-                        </div>
-                        <div class="sensor-details">
-                            <h3>Temperature Sensor</h3>
-                            <?php if($temperatureError || !$_SESSION['username']){
-                                echo "<i class='fa-solid fa-toggle-off'></i>";
-                            }else{
-                                echo "<i class='fa-solid fa-toggle-on'></i>";
-                            }
-                            ?>
-                        </div>
-                        <div class="sensor-details">
-                            <h3>Humidity Sensor</h3>
-                            <?php if($humidityError || !$_SESSION['username']){
-                                echo "<i class='fa-solid fa-toggle-off'></i>";
-                            }else{
-                                echo "<i class='fa-solid fa-toggle-on'></i>";
-                            }
-                            ?>
-                        </div>
-                    </div>
+                    <?php include "sensorStatus.php" ?>
                 </div>
+
             </div>
 
         </div>
@@ -215,73 +137,12 @@
             </div>
             <div class="analytics-Main">
                 <div class="chart-Container">
-                    <div class="Chart weekly-Chart">
-                        <div class="barchart-head">
-                            <h2>Sensor Reading</h2>
-                            <select name="week-switch" onchange="filterChart(this)">
-                                <option value="2">Weekly</option>
-                                <option value="1">Monthly</option>
-                            </select>
-                        </div>
-                        <?php 
-                            if(!$_SESSION['username']){
-                                echo "<span class='chartError'>No Results Found</span>";
-                            }else {
-                                echo "
-                                    <div class='barChart'>
-                                        <span class='errorField'></span>
-                                        <canvas id='barChart'><canvas>
-                                    </div>";
-                            }
-                        ?>
-                    </div>
-                    <div class="Chart pie-Chart">
-                        <h2>Plant Growth</h2>
-                        <?php 
-                            if(!$_SESSION['username']){
-                                echo "<span class='chartError'>No Results Found</span>";
-                            }else {
-                                echo "
-                                    <div class='plantAge'>
-                                        <span class='errorField'></span>
-                                        <canvas id='plantAge'></canvas>
-                                    </div>";
-                            }
-                        ?>
-                    </div>
-                    <div class="Chart line-Chart">
-                        <h2>Pump Status</h2>
-                        <?php 
-                            if(!$_SESSION['username']){
-                                echo "<span class='chartError'>No Results Found</span>";
-                            }else{
-                                echo "
-                                    <div class='pumpReading'>
-                                       <span class='errorField'></span>
-                                       <canvas id='pumpReading'></canvas>
-                                    </div>";
-                            }
-                        ?>
-                    </div>
-                    <div class="Chart dot-Chart">
-                        <div class="dotchart-head">
-                            <h2>Daily Reading</h2>
-                        </div>
-                        <?php 
-                            if(!$_SESSION['username']){
-                                echo "<span class='chartError'>No Results Found</span>";
-                            }else {
-                                echo "
-                                    <div class='dailyChart'>
-                                        <span class='errorField'></span>
-                                        <canvas id='dotChart'></canvas>
-                                    </div>";
-                            }
-                        ?>
-                    </div>
+                    <?php include "chartContainer.php"; ?>
                 </div>
-                <h4 class="motto">Growing community by inspiring healthy, whole, abundant living.
-                </h4>
+                <div class="motto">
+                    <h1>Life on a farm is a school of patience; you can't hurry the crops in two days.
+                    </h1>
+                </div>
                 <div class="plant"></div>
             </div>
         </div>
@@ -293,23 +154,30 @@
                 <span>Feel free to reach out if you need anything.I'm here for you.</span>
             </div>
             <div class="contact-Main">
+                <?php
+                    $adminDetails = "SELECT * FROM `AdminDetails`";
+                    $adminDetailsResult = mysqli_query($conn,$adminDetails);
+                    if(mysqli_num_rows($adminDetailsResult) > 0){
+                        $admin = mysqli_fetch_assoc($adminDetailsResult);
+                    }
+                ?>
                 <div class="blocks support">
                     <i class="fa-solid fa-message"></i>
                     <h3>Chat to support</h3>
                     <span>For more help</span>
-                    <a href='/'>admin@Greenify.com</a>
+                    <a href="mailto:<?php echo $admin['email'] ?>" ><?php echo $admin['email'] ?></a>
                 </div>
                 <div class="blocks location">
                     <i class="fa-solid fa-location-dot"></i>
                     <h3>Location</h3>
                     <span>To visit the office</span>
-                    <a href="/">View on Google Maps</a>
+                    <a href="http://maps.google.com/">View on Google Maps</a>
                 </div>
                 <div class="blocks phone">
                     <i class="fa-solid fa-phone"></i>
                     <h3>Call</h3>
                     <span>Mon-Fri from 9AM to 5AM</span>
-                    <p>+91 9999999999</p>
+                    <p><?php echo $admin['phone_number'] ?></p>
                 </div>
             </div>
         </div>
@@ -318,8 +186,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
-    <script src="script.js"></script>
-    <script src="dataFetch.js"></script>
+    <script src="navButton.js"></script>
+    <script src="dateFetch.js"></script>
+    <script src="autoUpdatingDiv.js"></script>
     <?php include_once "../Charts/Barchart.php" ?>
     <?php include_once "../Charts/Piechart.php" ?>
     <?php include_once "../Charts/Linechart.php" ?>

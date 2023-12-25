@@ -1,4 +1,5 @@
 <?php
+    include "../connection.php";
     session_start();
     // Monthly Stat Query
     $tableName = $_SESSION['tableName'];
@@ -41,8 +42,8 @@
                       bottom: 100
                     }
                 },  
-                radius: 90,
-                cutout: 60,
+                radius: 80,
+                cutout: 50,
                 plugins: {
                     legend: {
                         labels: {

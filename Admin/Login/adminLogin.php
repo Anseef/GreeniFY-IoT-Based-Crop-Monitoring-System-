@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
-    <link rel="stylesheet" href="adminLogin.css">
+    <link rel="stylesheet" href="adminLogins.css">
 </head>
 <body>
     <div class="mainContainer">
@@ -16,7 +16,7 @@
 
             <div class="loginContainer">
                 <div class="block">
-                    <form method="post" onsubmit="verification(event)">
+                    <form method="post" autocomplete="off" onsubmit="verification(event)">
                         <h1>Admin Login</h1>
                         <div class="input-box">
                             <div class="field">

@@ -1,6 +1,7 @@
 <?php 
     session_name("adminSession");
     session_start();
+    error_reporting(0);
     include "../connection.php";
     include "dashData.php";
     if (isset($_SESSION['farmID']) && isset($_SESSION['admin'])) {
@@ -18,7 +19,7 @@
         $temperatureValue = 0;
         $humidityValue = 0;
         }
-        if($moistureValue && $humidityValue && $temperatureValue){
+        if($moistureValue !==0 && $humidityValue !==0 && $temperatureValue !==0 ){
             if($moistureValue < 15 || $moistureValue > 80) {
                 $moistureError = true;
             }
@@ -36,8 +37,8 @@
     <span>No of sensors: <?php echo isset($_SESSION['admin']) ? '3' : '0'; ?></span>
     <div class="varients">
         <div class="header">
-            <h2>Varients</h2>
-            <h2>Status</h2>
+            <h3>Varients</h3>
+            <h3>Status</h3>
         </div>
         <div class="sensor-block">
             <span>Temperature Sensor</span>

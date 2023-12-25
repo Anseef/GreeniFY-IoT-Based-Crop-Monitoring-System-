@@ -1,5 +1,6 @@
 const homeContainer = document.querySelector('.home-Container');
 const createFarmContainer = document.querySelector('.createFarmContainer');
+const removeContainer = document.querySelector('.removeFarmContainer');
 const farmInputField = document.querySelectorAll('.createFarm-Main input');
 const errorField = document.querySelectorAll('.createFarm-Main span');
 
@@ -53,13 +54,20 @@ const farmIDValidation = (farmID) => {
 
 
 const popUpWindow = () => {
+    removeAllFields();
     homeContainer.classList.add('blur');
     createFarmContainer.classList.add('shown');
+}
+const removeFarmPopUp = () => {
+    removeAllFields();
+    homeContainer.classList.add('blur');
+    removeContainer.classList.add('shown');
 }
 const closeContainer = () => {
     removeAllFields();
     homeContainer.classList.remove('blur');
     createFarmContainer.classList.remove('shown');
+    removeContainer.classList.remove('shown');
 }
 const removeAllFields = () => {
     farmInputField.forEach((field,id) => {
@@ -70,5 +78,11 @@ const removeAllFields = () => {
 }
 const addFarmBtn = document.querySelector('#addFarmBtn');
 const closeWindowBtn = document.querySelector('.createFarmContainer i');
+const removeFarmBtn = document.querySelector('#removeFarmBtn');
+const closeRemoveFarmContainer = document.querySelector('.removeFarmContainer i');
+
 addFarmBtn.addEventListener('click',popUpWindow);
 closeWindowBtn.addEventListener('click',closeContainer);
+
+removeFarmBtn.addEventListener('click', removeFarmPopUp);
+closeRemoveFarmContainer.addEventListener('click',closeContainer);

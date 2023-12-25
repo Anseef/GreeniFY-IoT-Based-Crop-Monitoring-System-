@@ -1,4 +1,5 @@
 <?php
+    include "../connection.php";
     session_start();
     $tableName = $_SESSION['tableName'];
     // Monthly Stat Query
@@ -114,8 +115,8 @@
                         ticks: {
                             color: 'black',
                             font: {
-                                weight: 300,
-                                size: 12  // Increase font weight of x-axis labels
+                                weight: 400,
+                                size: 10  // Increase font weight of x-axis labels
                             },
                         }
                     },

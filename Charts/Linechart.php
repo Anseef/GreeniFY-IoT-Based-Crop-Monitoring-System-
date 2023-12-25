@@ -1,4 +1,5 @@
 <?php
+    include "../connection.php";
     session_start();
     $tableName = $_SESSION['tableName'];
     // Monthly Stat Query
@@ -61,7 +62,7 @@
                         color: 'black',
                         font: {
                             weight: 300,
-                            size: 12
+                            size: 10
                         }
                     }
                 },

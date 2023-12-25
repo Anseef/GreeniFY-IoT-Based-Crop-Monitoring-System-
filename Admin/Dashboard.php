@@ -1,6 +1,7 @@
 <?php
     session_name("adminSession");
     session_start();
+    error_reporting(0);
     $url = $_SERVER['REQUEST_URI'];
     $parts = explode('/', $url);
     $farmID = $parts[4];
@@ -13,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Charts/charts.css">
+    <link rel="stylesheet" href="../../Charts/chart.css">
     <link rel="stylesheet" href="../styles.css">
     <title>Dashboard</title>
 </head>
@@ -68,6 +69,9 @@
                         }
                     ?>
                 </div>
+                <div class="motto">
+                    <h3>If you tickle the earth with a hoe she laughs with a harvest!</h3>
+                </div>
                 <div class="info-Container">
                     <div class="farmer-Info">
                         <h2>Farmer info</h2>
@@ -79,7 +83,7 @@
                     </div>
                     <?php include "sensorInfo.php"; ?>
                 </div>
-        
+            <div class="image"></div>
             </div>
         </div>
     </div>

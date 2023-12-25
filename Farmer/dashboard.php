@@ -1,6 +1,7 @@
 <?php include "../connection.php";
     session_name("userSession");
     session_start();
+    error_reporting(0);
     if(isset($_SESSION['username'])){
         $sessionUser = $_SESSION['username']; 
         $farmDetails = "SELECT * FROM FarmDetails
@@ -16,7 +17,7 @@
                 while($srReading = mysqli_fetch_assoc($fetchSrDataResult)){
                     $moistureValue = $srReading['mvalue'];
                     $temperatureValue = $srReading['tvalue'];
-                    $humidityValue = $srReading['hvalue'];
+                    $humidityValue = $srReading['hvalue'];                 
                 }
             }else{
                 $moistureValue = 0;
@@ -26,7 +27,7 @@
         }
         if($_SERVER["REQUEST_METHOD"] === "POST") {
             $enteredDate = $_POST['enteredDate'];
-            $fetchDate = "SELECT dates from $tableName where DATE(dates) LIKE '%$enteredDate'";
+            $fetchDate = "SELECT dates from $tableName where DATE(dates) LIKE '%$enteredDate' AND status = 1";
             $fetchDateResult = mysqli_query($conn, $fetchDate);
             if(mysqli_num_rows($fetchDateResult) > 0){
                 while($row = mysqli_fetch_array($fetchDateResult)){
@@ -36,7 +37,7 @@
             echo json_encode($Dates);
         }
         //Sensor Status 
-        if($moistureValue && $humidityValue && $temperatureValue){
+        if($moistureValue !== 0 && $humidityValue !== 0 && $temperatureValue !== 0){
             if($moistureValue < 15 || $moistureValue > 80) {
                 $moistureError = true;
             }
@@ -46,6 +47,10 @@
             if($humidityValue < 40  || $humidityValue > 110) {
                 $humidityError = true;
             }
+        }else {
+            $moistureError = true;
+            $temperatureError = true;
+            $humidityError = true;
         }
     }
 ?>

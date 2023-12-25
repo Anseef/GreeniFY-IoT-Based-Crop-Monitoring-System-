@@ -6,6 +6,13 @@ body {
     font-family: 'Poppins', sans-serif;
     user-select: none;
 }
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(142, 192, 108, 0.44);
+    border-radius: 8px; 
+}
 .home-Container {
     min-height: 100vh;
     color: rgba(11, 39, 15, 1);
@@ -62,9 +69,9 @@ body {
     transform: scale(1.03);
 }
 .home-Main, .dashboard {
-    margin: 3rem auto;
+    margin: 2rem auto;
     width: 80%;
-    height: 38rem;
+    height: 34.5rem;
     background-color: rgba(29, 68, 51, 0.04);
     padding: 0 2rem 2rem;
     border-radius: 20px;
@@ -84,7 +91,21 @@ body {
     font-weight: 600;
     font-size: 34px;
 }
-.home-Main .add-Farm{
+.farm-Option {
+    display: flex;
+    align-items: center;
+    gap:20px;
+}
+.farm-Option button {
+    background-color: transparent;
+    border: 0;
+}
+.farm-Option .remove-Farm {
+    cursor: pointer;
+    font-size: large;
+    transition: transform 0.2s;
+}
+.farm-Option .add-Farm{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,7 +132,7 @@ body {
     transform: scale(1.03);
 }
 .farm-MainContainer {
-    margin-top: 7rem;
+    margin-top: 6rem;
 }
 .farm-MainContainer h1 {
     text-align: center;
@@ -119,7 +140,7 @@ body {
 .farm-Main {
     width: 100%;
     display: flex;
-    gap: 15px;
+    gap: 25px;
     align-items: center;
 }
 .swiper {
@@ -135,7 +156,7 @@ body {
 }
 .farm-Main .blocks {
     position: relative;
-    width: 200px;
+    max-width: 310px !important;
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -168,10 +189,9 @@ body {
     text-align: center;
 }
 
-.createFarmContainer {
+.createFarmContainer,
+.removeFarmContainer {
     z-index: 1;
-    width: 270px;
-    height: 400px;
     background-color: rgba(161, 216, 154, 1);
     position: absolute;
     top:50%;
@@ -182,7 +202,12 @@ body {
     visibility: hidden;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.30);
 }
-.createFarmContainer i {
+.createFarmContainer {
+    width: 250px;
+    height: 400px;
+}
+.createFarmContainer i,
+.removeFarmContainer i {
     position: absolute;
     top: 20px;
     right:20px;
@@ -194,24 +219,28 @@ body {
 .shown {
     visibility: visible;
 }
-.createFarmContainer .header h1 {
+.createFarmContainer .header h1,
+.removeFarmContainer .header h1{
     padding: 0;
     width: 100%;
     font-size: 30px;
     text-align: center;
     margin: .5rem;
 }
-.createFarmContainer .input-block {
+.createFarmContainer .input-block,
+.removeFarmContainer .input-block {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
-.createFarm-Main label {
+.createFarm-Main label,
+.removeFarm-Main label {
     margin-top: 1rem;
     font-weight: 600;
 }
-.createFarm-Main input {
+.createFarm-Main input,
+.removeFarm-Main input {
     padding: .6rem;
     outline: none;
     border: none;
@@ -220,17 +249,19 @@ body {
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
 }
-.createFarm-Main span {
+.createFarmContainer span,
+.removeFarmContainer span {
     height: 6px;
-    transition: all 0.2s;
     font-size: 12px;
     font-weight: 500;
 }
-.createFarm-Main .error {
+.createFarmContainer .error,
+.removeFarmContainer .error {
     padding-left: .5rem;
     color:rgb(247, 14, 60);
 }
-.createFarm-Main button {
+.createFarm-Main button,
+.removeFarm-Main button {
     width: 100%;
     margin-top: 1.4rem;
     border-radius: 6px;
@@ -243,8 +274,11 @@ body {
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
 }
-/* Dashboard */
 
+/* Dashboard */
+.dashboard {
+    position: relative;
+}
 .dashHeader {
     display: flex;
     align-items: center;
@@ -301,52 +335,80 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 12px;
     height: 30px;
-    color: var(--textColor);
 }
 .weekly-Chart {
-    width: 555px;
-    height: 270px;
-    background-color: rgb(245, 252, 243);
+    width: 500px;
+    height: 240px;
+    background-color: rgb(251, 252, 250);
 }
 .pie-Chart {
-    width: 35%;
-    height: 270px;
-    background-color: rgb(245, 252, 243);
+    width: 400px;
+    height: 240px;
 }
+.motto {
+    padding-top: 1.5rem;
+    padding-left: 3rem;
+    width: 200px;
+    height: 240px;
+    text-align: center;
+    color:rgba(11, 39, 15, 1);
+    font-size: larger;
+}
+.image {
+    background-image: url(../Farmer/images/lavender.png);
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: 0;
+    bottom: 0;
+}
+
 .info-Container {
-    width: 100%;
     display: flex;
     gap: 15px;
+    height: 190px;
+}
+.farmer-Info{
+    width:450px;
+}
+.sensor-Info {
+    width:355px;
 }
 .farmer-Info, .sensor-Info {
-    padding: 2rem;
-    width:50%;
-    height: 150px;
+    padding: 1.5rem;
     background-color: rgb(245, 252, 243);
     border-radius: 15px;
 }
 .farmer-Info .farmer-list {
     color: rgba(11, 39, 15, 1);
+    height: 122px;
+    overflow-y: scroll;
 }
 .farmer-Info table {
     border-collapse: separate;
     border-spacing: 8px;
 }
 .farmer-Info th {
+    font-size: 12px;
     font-weight: 600;
-    padding-right: 50px;
+    padding-right: 40px;
+}
+.farmer-Info td {
+    font-size: 14px;
 }
 .farmer-Info button {
     margin-top: 5px;
     background-color: rgba(161, 216, 154, 1);
     color: rgba(11, 39, 15, 1);
-    padding: .3rem;
+    padding: .2rem;
     border: 0;
     border-radius: 6px;
     font-weight: 600;
     text-align: center;
     cursor: pointer;
-    width: 100px;
+    width: 85px;
     font-family: 'Poppins', sans-serif;
 }
 .sensor-Info {
@@ -356,10 +418,15 @@ body {
     display: flex;
     justify-content: space-between;
 }
-.sensor-Info h2 ,.farmer-Info h2 {
+.sensor-Info h2 ,
+.farmer-Info h2,
+.sensor-Info h3 {
     margin: 0;
     font-weight: 600;
     color: rgba(11, 39, 15, 1);
+}
+.sensor-Info span {
+    font-size: 14px;
 }
 .sensor-Info .sensor-block {
     display: flex;

@@ -11,6 +11,7 @@ const fetchDate = async (e) => {
             const dateArray = await sendDate(enteredDate);
             const timeOnly = [];
             if (dateArray) {
+                console.log(dateArray);
                 dateArray.forEach((dateObj) => {
                     if (dateObj && dateObj.dates) {
                         const parts = dateObj.dates.split(' ');
@@ -41,12 +42,13 @@ const TimeSplit = (timeOnly) => {
             const [hours, minutes] = time.split(':');
             const meridian = hours >= 12 ? 'PM' : 'AM';
             const hours12 = (hours % 12) || 12;
+            console.log(hours);
             const time12 = `${hours12}:${minutes}${meridian}`;
-            if (hours >= "00:00:00" && hours <= "11:59:59") {
+            if (hours >= "00" && hours < "12") {
                 morningData.push(time12);
-            } else if (hours >= "12:00:00" && hours <= "17:59:59") {
+            } else if (hours >= "12" && hours < "18") {
                 noonData.push(time12);
-            } else if (hours >= "18:00:00" && hours <= "23:59:59") {
+            } else if (hours >= "18" && hours < "24") {
                 afternoonData.push(time12);
             }
         });

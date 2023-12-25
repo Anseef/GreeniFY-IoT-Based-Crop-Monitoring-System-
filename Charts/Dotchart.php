@@ -1,4 +1,5 @@
 <?php
+    include "../connection.php";
     session_start();
     $tableName = $_SESSION['tableName'];
     // Last Week Query
@@ -68,7 +69,7 @@
                     padding: {
                         bottom: 20,
                         top: 10,
-                        left: 20,
+                        left: 10,
                         right: 10
                     }
                 },
@@ -111,7 +112,7 @@
                         grid: {
                             display: false
                         },
-                        min: 20,
+                        suggestedMin: 20,
                         ticks: {
                             stepSize: 20,
                             color: 'black',
